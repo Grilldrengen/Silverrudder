@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccesLayer", "DataAcces
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{83F5B76A-D608-4B2C-A77E-74E309B0093C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{BCC03C6D-787E-46D7-B717-B3F76AA648B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silverrudder.UnitTest", "Silverrudder.UnitTest\Silverrudder.UnitTest.csproj", "{B70598B2-DE11-44FB-AC7B-F9272EEB05E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{83F5B76A-D608-4B2C-A77E-74E309B0093C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83F5B76A-D608-4B2C-A77E-74E309B0093C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83F5B76A-D608-4B2C-A77E-74E309B0093C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BCC03C6D-787E-46D7-B717-B3F76AA648B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BCC03C6D-787E-46D7-B717-B3F76AA648B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BCC03C6D-787E-46D7-B717-B3F76AA648B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BCC03C6D-787E-46D7-B717-B3F76AA648B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B70598B2-DE11-44FB-AC7B-F9272EEB05E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B70598B2-DE11-44FB-AC7B-F9272EEB05E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B70598B2-DE11-44FB-AC7B-F9272EEB05E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B70598B2-DE11-44FB-AC7B-F9272EEB05E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

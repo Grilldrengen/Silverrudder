@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class Classs1
+    public class Boat
     {
     }
 }
