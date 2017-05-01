@@ -4,9 +4,35 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
+        xmlns:views="clr-namespace:UI.Views"
+        xmlns:viewsmodels="clr-namespace:UI.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="900">
-    <Grid>
-        
-    </Grid>
+        Title="Svendborg Sejlklub" Height="500" Width="900">
+
+  <Window.Resources>
+    <DataTemplate DataType="{x:Type viewsmodels:ManageCaptainVM}">
+      <views:ManageCaptain DataContext='{Binding}'/>
+    </DataTemplate>
+  </Window.Resources>
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height='0.5*' />
+      <RowDefinition Height='4*' />
+      <RowDefinition Height='0.25*'/>
+    </Grid.RowDefinitions>
+
+    <WrapPanel Grid.Row='0' HorizontalAlignment='Center'>
+      <Button Content='Administrer Kaptajn' Height='25' Width='120' Click='Button_Click' />
+      <Button Content='Administrer Båd' Height='25' Width='120' />
+      <Button Content='Administrer Kategori' Height='25' Width='120' />
+      <Button Content='Administrer Tider' Height='25' Width='120' />
+    </WrapPanel>
+
+    <DockPanel Grid.Row='2'>
+      <TextBox />
+    </DockPanel>
+    
+    <ContentControl Grid.RowSpan='3' Content='{Binding}'/>
+  </Grid>
 </Window>

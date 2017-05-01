@@ -4,7 +4,7 @@ using Domain;
 using BusinessLayer;
 
 
-namespace Silverrudder.UnitTest
+namespace UI.UnitTest
 {
     [TestClass]
     public class ModifySailRace
