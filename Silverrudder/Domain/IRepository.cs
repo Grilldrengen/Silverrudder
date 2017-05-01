@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public interface IRepository<T>
+    public interface IRepository<T, X, Y>
     {
         void Create(T entity);
         void Delete(T entity);
-        void Modify(T entity);
+        bool Modify(T obj, X property, Y modifyValue);
         ////IQueryable<T> SearchFor(Expression<Func<T, bool>> predicate);
         ////IQueryable<T> GetAll();
         ////T GetById(int id);

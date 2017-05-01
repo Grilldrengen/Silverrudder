@@ -22,12 +22,6 @@ namespace Silverrudder.UnitTest
             Assert.AreEqual(captain, CaptainList.Instance.captainList[listCount - 1]);
         }
 
-        [TestCleanup]
-        public void CleanUp_OneCaptainObjectCreated()
-        {
-            CaptainList.Instance.captainList.Remove(captain);
-        }
-
         [TestMethod]
         public void ModifyCaptain_Delete_CaptainObjectDeleted()
         {
@@ -39,16 +33,37 @@ namespace Silverrudder.UnitTest
         }
 
         [TestMethod]
-        public void ModifyCaptain_Modify_NameChanged()
+        public void ModifyCaptain_Modify_CanChangeName()
         {
-            CaptainList.Instance.captainList.Add(captain = new Captain());
+            CaptainList.Instance.captainList.Add(captain = new Captain("test"));            
 
-            CaptainList.Instance.captainList[0].Name = "test";
-            captain = CaptainList.Instance.captainList[0];
+            bool result = captainRepository.Modify(captain, CaptainProperties.Name, "Changed");
 
-            captainRepository.Modify(captain);
+            Assert.AreEqual(captain.Name, "Changed");
+            Assert.IsTrue(result);
+        }
 
-            Assert.AreEqual("testChanged", captain);
+        [TestMethod]
+        public void ModifyCaptain_Modify_CanChangeCountry()
+        {
+            bool result = captainRepository.Modify(captain, CaptainProperties.Country, "DEN");
+
+            Assert.AreEqual(captain.Country, "DEN");
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void ModifyCaptain_Modify_CanChangeParticipantNumber()
+        {
+            bool result = captainRepository.Modify(captain, CaptainProperties.ParticipantNumber, "1234");
+            Assert.AreEqual(captain.ParticipantNumber, 1234);
+            Assert.IsTrue(result);
+        }
+
+        [TestCleanup]
+        public void CleanUp_ClearList()
+        {
+            CaptainList.Instance.captainList.Clear();
         }
     }
 }

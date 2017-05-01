@@ -7,8 +7,9 @@ using Domain;
 
 namespace BusinessLayer
 {
+    public enum CaptainProperties { Name, Country, ParticipantNumber};
 
-    public class CaptainRepository : IRepository<Captain>
+    public class CaptainRepository : IRepository<Captain, CaptainProperties, string>
     {
         public void Create(Captain captain)
         {
@@ -20,8 +21,45 @@ namespace BusinessLayer
             CaptainList.Instance.captainList.Remove(captain);
         }
 
-        public void Modify(Captain captain)
+        public bool Modify(Captain captain, CaptainProperties property, string newValue)
         {
+            switch (property)
+            {
+                case CaptainProperties.Name:
+                    captain.Name = newValue;
+                    return true;
+
+                case CaptainProperties.Country:
+                    if (newValue.Length == 3)
+                    {
+                        captain.Country = newValue.ToUpper();
+                        return true;
+                    }
+                    else
+                        return false;
+
+                case CaptainProperties.ParticipantNumber:
+                    bool result = TryParseStringToInt(newValue);
+                    if (result == false)
+                        return false;
+                    else                    
+                        captain.ParticipantNumber = int.Parse(newValue);
+                        return true;
+                    
+                      default:
+                    return false;
+            }
+        }
+
+        public bool TryParseStringToInt(string value)
+        {
+            int participantNumber;
+            bool res = int.TryParse(value, out participantNumber);
+
+            if (res == true)
+                return true;
+
+            else return false;
         }
     }
 }
