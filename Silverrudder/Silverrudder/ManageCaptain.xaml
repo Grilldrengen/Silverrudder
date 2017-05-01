@@ -14,8 +14,6 @@
       <RowDefinition Height='1*' />
       <RowDefinition Height='0.25*'/>
     </Grid.RowDefinitions>
-    
-    
 
     <DockPanel Grid.Row='1'>
       <ListView />
@@ -82,6 +80,8 @@
         <Button Content='Modificer deltager' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
+      
+      
     </Grid>
     
   </Grid>

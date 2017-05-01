@@ -9,7 +9,7 @@ namespace BusinessLayer
 {
     public enum CaptainProperties { Name, Country, ParticipantNumber};
 
-    public class CaptainRepository : IRepository<Captain, CaptainProperties, string>
+    public class CaptainsRepository : IRepository<Captain, CaptainProperties, string>
     {
         public void Create(Captain captain)
         {
