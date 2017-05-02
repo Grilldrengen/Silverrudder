@@ -67,15 +67,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\ManageCaptain.xaml">
+    <Page Include="Views\ManageParticipant.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\ManageCaptainVM.cs" />
-    <Compile Include="Views\ManageCaptain.xaml.cs">
-      <DependentUpon>ManageCaptain.xaml</DependentUpon>
+    <Compile Include="ViewModels\ManageParticipantVM.cs" />
+    <Compile Include="Views\ManageParticipant.xaml.cs">
+      <DependentUpon>ManageParticipant.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

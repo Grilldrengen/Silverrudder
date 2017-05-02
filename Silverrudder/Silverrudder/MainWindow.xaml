@@ -10,8 +10,8 @@
         Title="Svendborg Sejlklub" Height="500" Width="900">
 
   <Window.Resources>
-    <DataTemplate DataType="{x:Type viewsmodels:ManageCaptainVM}">
-      <views:ManageCaptain DataContext='{Binding}'/>
+    <DataTemplate DataType="{x:Type viewsmodels:ManageParticipantVM}">
+      <views:ManageParticipant DataContext='{Binding}'/>
     </DataTemplate>
   </Window.Resources>
 
@@ -19,20 +19,21 @@
     <Grid.RowDefinitions>
       <RowDefinition Height='0.5*' />
       <RowDefinition Height='4*' />
+      <RowDefinition Height='0.10*'/>
       <RowDefinition Height='0.25*'/>
     </Grid.RowDefinitions>
 
     <WrapPanel Grid.Row='0' HorizontalAlignment='Center'>
-      <Button Content='Administrer Kaptajn' Height='25' Width='120' Click='Button_Click' />
-      <Button Content='Administrer Båd' Height='25' Width='120' />
+      <Button Content='Administrer Deltager' Height='25' Width='120' Click='Button_Click' />
+      
       <Button Content='Administrer Kategori' Height='25' Width='120' />
       <Button Content='Administrer Tider' Height='25' Width='120' />
     </WrapPanel>
 
-    <DockPanel Grid.Row='2'>
+    <DockPanel Grid.Row='3'>
       <TextBox />
     </DockPanel>
     
-    <ContentControl Grid.RowSpan='3' Content='{Binding}'/>
+    <ContentControl Grid.RowSpan='4' Content='{Binding}'/>
   </Grid>
 </Window>

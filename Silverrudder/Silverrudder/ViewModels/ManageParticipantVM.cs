@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UI.ViewModels
 {
-    class ManageCaptainVM
+    class ManageParticipantVM
     {
 
     }

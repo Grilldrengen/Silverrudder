@@ -7,43 +7,43 @@ using Domain;
 
 namespace BusinessLayer
 {
-    public enum CaptainProperties { Name, Country, ParticipantNumber};
+    public enum ParticipantProperties { Name, Country, ParticipantNumber};
 
-    public class CaptainRepository : IRepository<Captain, CaptainProperties, string>
+    public class ParticipantRepository : IRepository<Participant, ParticipantProperties, string>
     {
-        public void Create(Captain captain)
+        public void Create(Participant Participant)
         {
-            CaptainList.Instance.captainList.Add(captain);
+            ParticipantList.Instance.participantList.Add(Participant);
         }
 
-        public void Delete(Captain captain)
+        public void Delete(Participant Participant)
         {
-            CaptainList.Instance.captainList.Remove(captain);
+            ParticipantList.Instance.participantList.Remove(Participant);
         }
 
-        public bool Modify(Captain captain, CaptainProperties property, string newValue)
+        public bool Modify(Participant Participant, ParticipantProperties property, string newValue)
         {
             switch (property)
             {
-                case CaptainProperties.Name:
-                    captain.Name = newValue;
+                case ParticipantProperties.Name:
+                    Participant.Name = newValue;
                     return true;
 
-                case CaptainProperties.Country:
+                case ParticipantProperties.Country:
                     if (newValue.Length == 3)
                     {
-                        captain.Country = newValue.ToUpper();
+                        Participant.Country = newValue.ToUpper();
                         return true;
                     }
                     else
                         return false;
 
-                case CaptainProperties.ParticipantNumber:
+                case ParticipantProperties.ParticipantNumber:
                     bool result = TryParseStringToInt(newValue);
                     if (result == false)
                         return false;
                     else                    
-                        captain.ParticipantNumber = int.Parse(newValue);
+                        Participant.ParticipantNumber = int.Parse(newValue);
                         return true;
                     
                       default:

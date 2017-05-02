@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoatRepository.cs" />
-    <Compile Include="CaptainRepository.cs" />
+    <Compile Include="ParticipantRepository.cs" />
     <Compile Include="CategoryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

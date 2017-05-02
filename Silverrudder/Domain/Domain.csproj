@@ -42,8 +42,8 @@
   <ItemGroup>
     <Compile Include="Boat.cs" />
     <Compile Include="BoatList.cs" />
-    <Compile Include="Captain.cs" />
-    <Compile Include="CaptainList.cs" />
+    <Compile Include="Participant.cs" />
+    <Compile Include="ParticipantList.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

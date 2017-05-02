@@ -9,60 +9,60 @@ namespace UI.UnitTest
     [TestClass]
     public class ModifySailRace
     {        
-        Captain captain = new Captain();
-        CaptainRepository captainRepository = new CaptainRepository();   
+        Participant Participant = new Participant();
+        ParticipantRepository ParticipantRepository = new ParticipantRepository();   
         
         [TestMethod]
-        public void ModifyCaptain_Create_OneCaptainObjectCreated()
+        public void ModifyParticipant_Create_OneParticipantObjectCreated()
         {
-            captainRepository.Create(captain);
-            int listCount = CaptainList.Instance.captainList.Count;
+            ParticipantRepository.Create(Participant);
+            int listCount = ParticipantList.Instance.ParticipantList.Count;
 
-            Assert.AreEqual(captain, CaptainList.Instance.captainList[listCount - 1]);
+            Assert.AreEqual(Participant, ParticipantList.Instance.ParticipantList[listCount - 1]);
         }
 
         [TestMethod]
-        public void ModifyCaptain_Delete_CaptainObjectDeleted()
+        public void ModifyParticipant_Delete_ParticipantObjectDeleted()
         {
-            CaptainList.Instance.captainList.Add(captain = new Captain());
+            ParticipantList.Instance.ParticipantList.Add(Participant = new Participant());
 
-            captainRepository.Delete(captain);
+            ParticipantRepository.Delete(Participant);
 
-            Assert.IsFalse(CaptainList.Instance.captainList.Contains(captain));
+            Assert.IsFalse(ParticipantList.Instance.ParticipantList.Contains(Participant));
         }
 
         [TestMethod]
-        public void ModifyCaptain_Modify_CanChangeName()
+        public void ModifyParticipant_Modify_CanChangeName()
         {
-            CaptainList.Instance.captainList.Add(captain = new Captain("test"));            
+            ParticipantList.Instance.ParticipantList.Add(Participant = new Participant("test"));            
 
-            bool result = captainRepository.Modify(captain, CaptainProperties.Name, "Changed");
+            bool result = ParticipantRepository.Modify(Participant, ParticipantProperties.Name, "Changed");
 
-            Assert.AreEqual(captain.Name, "Changed");
+            Assert.AreEqual(Participant.Name, "Changed");
             Assert.IsTrue(result);
         }
 
         [TestMethod]
-        public void ModifyCaptain_Modify_CanChangeCountry()
+        public void ModifyParticipant_Modify_CanChangeCountry()
         {
-            bool result = captainRepository.Modify(captain, CaptainProperties.Country, "DEN");
+            bool result = ParticipantRepository.Modify(Participant, ParticipantProperties.Country, "DEN");
 
-            Assert.AreEqual(captain.Country, "DEN");
+            Assert.AreEqual(Participant.Country, "DEN");
             Assert.IsTrue(result);
         }
 
         [TestMethod]
-        public void ModifyCaptain_Modify_CanChangeParticipantNumber()
+        public void ModifyParticipant_Modify_CanChangeParticipantNumber()
         {
-            bool result = captainRepository.Modify(captain, CaptainProperties.ParticipantNumber, "1234");
-            Assert.AreEqual(captain.ParticipantNumber, 1234);
+            bool result = ParticipantRepository.Modify(Participant, ParticipantProperties.ParticipantNumber, "1234");
+            Assert.AreEqual(Participant.ParticipantNumber, 1234);
             Assert.IsTrue(result);
         }
 
         [TestCleanup]
         public void CleanUp_ClearList()
         {
-            CaptainList.Instance.captainList.Clear();
+            ParticipantList.Instance.ParticipantList.Clear();
         }
     }
 }

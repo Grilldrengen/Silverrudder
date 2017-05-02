@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class CaptainList
+    public class ParticipantList
     {
-        private static readonly CaptainList _instance = new CaptainList();
+        private static readonly ParticipantList _instance = new ParticipantList();
 
-        public static CaptainList Instance
+        public static ParticipantList Instance
         {
             get
             {
                 return _instance;
             }
         }
-        public List<Captain> captainList = new List<Captain>();
+        public List<Participant> participantList = new List<Participant>();
 
-        public CaptainList()
+        public ParticipantList()
         {
         }
     }

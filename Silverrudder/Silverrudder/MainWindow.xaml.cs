@@ -28,7 +28,7 @@ namespace UI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new ManageCaptainVM();
+            DataContext = new ManageParticipantVM();
         }
     }
 }

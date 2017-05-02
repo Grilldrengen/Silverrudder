@@ -7,7 +7,7 @@ using Domain;
 
 namespace Domain
 {
-    public class Captain
+    public class Participant
     {
 
         public string Name { get; set; }
@@ -15,15 +15,15 @@ namespace Domain
         public int ParticipantNumber { get; set; }
         public Boat Boat { get; set; }
 
-        public Captain()
+        public Participant()
         { }
 
-        public Captain(string name)
+        public Participant(string name)
         {
             this.Name = name;
         }
 
-        public Captain(string name, int participantNumber, string country, Boat boat)
+        public Participant(string name, int participantNumber, string country, Boat boat)
         {
             this.Name = name;
             this.ParticipantNumber = participantNumber;

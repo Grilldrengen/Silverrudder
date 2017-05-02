@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace UI.Views
 {
     /// <summary>
-    /// Interaction logic for ManageCaptain.xaml
+    /// Interaction logic for ManageParticipant.xaml
     /// </summary>
-    public partial class ManageCaptain : UserControl
+    public partial class ManageParticipant : UserControl
     {
-        public ManageCaptain()
+        public ManageParticipant()
         {
             InitializeComponent();
         }
