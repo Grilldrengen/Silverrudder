@@ -13,20 +13,20 @@
       <RowDefinition Height='3*' />
       <RowDefinition Height='1*' />
       <RowDefinition Height='0.10*'/>
-      <RowDefinition Height='0.25*'/>
+      <RowDefinition Height='0.15*'/>
     </Grid.RowDefinitions>
 
     <DockPanel Grid.Row='1'>
       <DataGrid />
     </DockPanel>
-    
+
     <Grid Grid.Row='2'>
       <Grid.RowDefinitions >
         <RowDefinition Height='1*' />
         <RowDefinition Height='1*' />
         <RowDefinition Height='1*' />
       </Grid.RowDefinitions>
-      
+
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width='1*' />
         <ColumnDefinition Width='1*' />
@@ -34,67 +34,64 @@
         <ColumnDefinition Width='1*' />
         <ColumnDefinition Width='1*' />
       </Grid.ColumnDefinitions>
-      
+
       <DockPanel Grid.Row='0'>
-        <Label Content='Kaptajn' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <Label x:Name='CaptainLbl' Content='Kaptajn' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
+        <TextBox x:Name='CaptainTbx' Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='1'>
-        <Label Content='Land' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <Label x:Name='CountryLbl' Content='Land' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
+        <TextBox x:Name='CountryTbx' Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='2'>
-        <Label Content='Bådtype' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <Label x:Name='BoatTypeLbl' Content='Bådtype' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
+        <TextBox x:Name='BoatTypeTbx' Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='0' Grid.Column='1'>
-        <Label Content='Bådnavn' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <Label x:Name='BoatNameLbl' Content='Bådnavn' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
+        <TextBox x:Name='BoatNameTbx' Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='1' Grid.Column='1'>
-        <Label Content='Bådkategori' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <Label x:Name='BoatCategoryLbl' Content='Bådkategori' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
+        <TextBox x:Name='BoatCategoryTbx' Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
-      
+
       <DockPanel Grid.Row='2' Grid.Column='1'>
-        <Label Content='Sejl nr.' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <Label x:Name='SailNumberLbl' Content='Sejl nr.' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
+        <TextBox x:Name='SailNumberTbx' Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='0' Grid.Column='2'>
-        <Label Content='Deltager nr.' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <Label x:Name='ParticipantNumberLbl' Content='Deltager nr.' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
+        <TextBox x:Name='ParticipantNumberTbx' Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='1' Grid.Column='2'>
-        <Label Content='Bådfarve' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <Label x:Name='BoatColorLbl' Content='Bådfarve' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
+        <TextBox x:Name='BoatColorTbx' Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='2' Grid.Column='2'>
-        <Label Content='Bådlængde' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <Label x:Name='BoatLenghtLbl' Content='Bådlængde' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
+        <TextBox x:Name='BoatLenghtTbx' Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='0' Grid.Column='4'>
-        <Button Content='Opret deltager' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <Button x:Name='CreateParticipantBtn' Content='Opret deltager' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='1' Grid.Column='4'>
-        <Button Content='Slet deltager' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <Button x:Name='DeleteParticipantBtn' Content='Slet deltager' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='2' Grid.Column='4'>
-        <Button Content='Modificer deltager' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <Button x:Name='ModifyParticipantBtn' Content='Rediger deltager' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
-      
-      
     </Grid>
-    
   </Grid>
 </UserControl>
