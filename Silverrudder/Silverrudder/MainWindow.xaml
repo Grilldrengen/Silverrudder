@@ -9,30 +9,19 @@
         mc:Ignorable="d"
         Title="Svendborg Sejlklub" Height="700" Width="1200">
 
-  <Window.Resources>
-    <DataTemplate DataType="{x:Type viewsmodels:ManageParticipantVM}">
-      <views:ManageParticipant DataContext='{Binding}'/>
-    </DataTemplate>
-  </Window.Resources>
 
   <Grid>
     <Grid.RowDefinitions>
-      <RowDefinition Height='0.5*' />
-      <RowDefinition Height='4*' />
-      <RowDefinition Height='0.10*'/>
-      <RowDefinition Height='0.15*'/>
+      <RowDefinition Height='1*' />
     </Grid.RowDefinitions>
 
-    <WrapPanel Grid.Row='0' HorizontalAlignment='Center'>
-      <Button x:Name='AdministrerDeltagerBtn' Content='Administrer Deltager' Height='25' Width='140' Click='AdministrerDeltagerBtn_Click' />
-      <Button x:Name='AdministrerKategorierBtn' Content='Administrer Kategorier' Height='25' Width='140' Click='AdministrerKategorierBtn_Click' />
-      <Button x:Name='StopBådtiderBtn' Content='Stop bådtider' Height='25' Width='140' Click='StopBådtiderBtn_Click' />
-    </WrapPanel>
+    <TabControl Grid.Row='0'>
+      <TabItem Header='Administrer Deltager'  Height='25'>
+        <views:ManageParticipant />
+      </TabItem>
+      <TabItem Header='Administrer Kategorier' />
+      <TabItem Header='Stop Bådenes Tider' />
+    </TabControl>
 
-    <DockPanel Grid.Row='3'>
-      <TextBox x:Name='InfoTbx'/>
-    </DockPanel>
-    
-    <ContentControl Grid.RowSpan='4' Content='{Binding}'/>
   </Grid>
 </Window>

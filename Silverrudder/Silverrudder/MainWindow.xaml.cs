@@ -24,20 +24,7 @@ namespace UI
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private void AdministrerDeltagerBtn_Click(object sender, RoutedEventArgs e)
-        {
-            DataContext = new ManageParticipantVM();
-        }
-
-        private void AdministrerKategorierBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void StopBådtiderBtn_Click(object sender, RoutedEventArgs e)
-        {
 
         }
     }
