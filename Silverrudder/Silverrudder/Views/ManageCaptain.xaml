@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="Silverrudder.ManageCaptain"
+﻿<UserControl x:Class="UI.Views.ManageCaptain"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Silverrudder"
+             xmlns:local="clr-namespace:UI.Views"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="900">
   <Grid>
@@ -14,11 +14,9 @@
       <RowDefinition Height='1*' />
       <RowDefinition Height='0.25*'/>
     </Grid.RowDefinitions>
-    
-    
 
     <DockPanel Grid.Row='1'>
-      <ListView />
+      <DataGrid />
     </DockPanel>
     
     <Grid Grid.Row='2'>
@@ -37,37 +35,37 @@
       
       <DockPanel Grid.Row='0'>
         <Label Content='Kaptajn' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox Text='Indtast Kaptajn' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <TextBox Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='1'>
         <Label Content='Land' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox Text='Indtast Land' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <TextBox Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='2'>
         <Label Content='Bådtype' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox Text='Indtast Bådtype' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <TextBox Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='0' Grid.Column='1'>
         <Label Content='Bådnavn' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox Text='Indtast Bådnavn' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <TextBox Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='1' Grid.Column='1'>
         <Label Content='Bådkategori' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox Text='Indtast kategori' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <TextBox Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
       
       <DockPanel Grid.Row='2' Grid.Column='1'>
         <Label Content='Sejl nr.' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox Text='Indtast sejl nr.' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <TextBox Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='0' Grid.Column='2'>
         <Label Content='Deltager nr.' Width='75' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox Text='Indtast Deltager nr.' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <TextBox Text='' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='0' Grid.Column='3'>
@@ -82,6 +80,8 @@
         <Button Content='Modificer deltager' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
       </DockPanel>
 
+      
+      
     </Grid>
     
   </Grid>
