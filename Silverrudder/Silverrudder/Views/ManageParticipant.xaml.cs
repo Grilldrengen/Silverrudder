@@ -19,13 +19,17 @@ namespace UI.Views
     /// <summary>
     /// Interaction logic for ManageParticipant.xaml
     /// </summary>
+
     public partial class ManageParticipant : UserControl
     {
+        private ManageParticipantVM viewModel { get; set; }
+
         public ManageParticipant()
         {
             InitializeComponent();
-  
-            DataContext = new ManageParticipantVM();
+
+            viewModel = new ManageParticipantVM();
+            DataContext = viewModel;
         } 
     }
 }
