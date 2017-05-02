@@ -7,7 +7,7 @@
         xmlns:views="clr-namespace:UI.Views"
         xmlns:viewsmodels="clr-namespace:UI.ViewModels"
         mc:Ignorable="d"
-        Title="Svendborg Sejlklub" Height="500" Width="900">
+        Title="Svendborg Sejlklub" Height="700" Width="1200">
 
   <Window.Resources>
     <DataTemplate DataType="{x:Type viewsmodels:ManageParticipantVM}">
