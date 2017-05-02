@@ -41,7 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Boat.cs" />
-    <Compile Include="BoatList.cs" />
     <Compile Include="Participant.cs" />
     <Compile Include="ParticipantList.cs" />
     <Compile Include="Category.cs" />

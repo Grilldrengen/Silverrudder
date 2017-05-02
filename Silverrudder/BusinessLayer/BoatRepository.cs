@@ -13,12 +13,10 @@ namespace BusinessLayer
     {
         public void Create(Boat boat)
         {
-            BoatList.Instance.boatList.Add(boat);
         }
 
         public void Delete(Boat boat)
         {
-            BoatList.Instance.boatList.Remove(boat);
         }
 
         public bool Modify(Boat boat, BoatProperties property, string newValue)
