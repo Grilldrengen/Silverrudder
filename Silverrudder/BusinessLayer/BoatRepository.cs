@@ -28,12 +28,15 @@ namespace BusinessLayer
                 case BoatProperties.Name:
                     boat.Name = newValue;
                     return true;
+
                 case BoatProperties.SailNumber:
                     boat.SailNumber = newValue;
                     return true;
+
                 case BoatProperties.Model:
                     boat.Model = newValue;
                     return true;
+
                 case BoatProperties.Length:
                     bool result = TryParseStringToInt(newValue);
                     if (result == false)
@@ -41,6 +44,7 @@ namespace BusinessLayer
                     else
                         boat.Length = int.Parse(newValue);
                         return true;
+
                 case BoatProperties.Colour:
                     boat.Colour = newValue;
                     return true;

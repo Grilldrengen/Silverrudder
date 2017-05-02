@@ -20,18 +20,17 @@
       <RowDefinition Height='0.5*' />
       <RowDefinition Height='4*' />
       <RowDefinition Height='0.10*'/>
-      <RowDefinition Height='0.25*'/>
+      <RowDefinition Height='0.15*'/>
     </Grid.RowDefinitions>
 
     <WrapPanel Grid.Row='0' HorizontalAlignment='Center'>
-      <Button Content='Administrer Deltager' Height='25' Width='120' Click='Button_Click' />
-      
-      <Button Content='Administrer Kategori' Height='25' Width='120' />
-      <Button Content='Administrer Tider' Height='25' Width='120' />
+      <Button x:Name='AdministrerDeltagerBtn' Content='Administrer Deltager' Height='25' Width='140' Click='AdministrerDeltagerBtn_Click' />
+      <Button x:Name='AdministrerKategorierBtn' Content='Administrer Kategorier' Height='25' Width='140' Click='AdministrerKategorierBtn_Click' />
+      <Button x:Name='StopBådtiderBtn' Content='Stop bådtider' Height='25' Width='140' Click='StopBådtiderBtn_Click' />
     </WrapPanel>
 
     <DockPanel Grid.Row='3'>
-      <TextBox />
+      <TextBox x:Name='InfoTbx'/>
     </DockPanel>
     
     <ContentControl Grid.RowSpan='4' Content='{Binding}'/>

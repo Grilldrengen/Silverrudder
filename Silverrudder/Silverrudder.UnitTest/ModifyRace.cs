@@ -16,25 +16,25 @@ namespace UI.UnitTest
         public void ModifyParticipant_Create_OneParticipantObjectCreated()
         {
             ParticipantRepository.Create(Participant);
-            int listCount = ParticipantList.Instance.ParticipantList.Count;
+            int listCount = ParticipantList.Instance.participantList.Count;
 
-            Assert.AreEqual(Participant, ParticipantList.Instance.ParticipantList[listCount - 1]);
+            Assert.AreEqual(Participant, ParticipantList.Instance.participantList[listCount - 1]);
         }
 
         [TestMethod]
         public void ModifyParticipant_Delete_ParticipantObjectDeleted()
         {
-            ParticipantList.Instance.ParticipantList.Add(Participant = new Participant());
+            ParticipantList.Instance.participantList.Add(Participant = new Participant());
 
             ParticipantRepository.Delete(Participant);
 
-            Assert.IsFalse(ParticipantList.Instance.ParticipantList.Contains(Participant));
+            Assert.IsFalse(ParticipantList.Instance.participantList.Contains(Participant));
         }
 
         [TestMethod]
         public void ModifyParticipant_Modify_CanChangeName()
         {
-            ParticipantList.Instance.ParticipantList.Add(Participant = new Participant("test"));            
+            ParticipantList.Instance.participantList.Add(Participant = new Participant("test"));            
 
             bool result = ParticipantRepository.Modify(Participant, ParticipantProperties.Name, "Changed");
 
@@ -62,7 +62,7 @@ namespace UI.UnitTest
         [TestCleanup]
         public void CleanUp_ClearList()
         {
-            ParticipantList.Instance.ParticipantList.Clear();
+            ParticipantList.Instance.participantList.Clear();
         }
     }
 }

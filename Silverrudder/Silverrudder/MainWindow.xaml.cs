@@ -26,9 +26,19 @@ namespace UI
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AdministrerDeltagerBtn_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new ManageParticipantVM();
+        }
+
+        private void AdministrerKategorierBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void StopBådtiderBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
