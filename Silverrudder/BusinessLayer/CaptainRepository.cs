@@ -51,7 +51,7 @@ namespace BusinessLayer
             }
         }
 
-        public bool TryParseStringToInt(string value)
+        private bool TryParseStringToInt(string value)
         {
             int participantNumber;
             bool res = int.TryParse(value, out participantNumber);

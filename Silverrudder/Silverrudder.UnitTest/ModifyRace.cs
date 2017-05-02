@@ -8,11 +8,10 @@ namespace Silverrudder.UnitTest
 {
     [TestClass]
     public class ModifySailRace
-    {
+    {        
         Captain captain = new Captain();
-
-        CaptainRepository captainRepository = new CaptainRepository();
-
+        CaptainRepository captainRepository = new CaptainRepository();   
+        
         [TestMethod]
         public void ModifyCaptain_Create_OneCaptainObjectCreated()
         {
