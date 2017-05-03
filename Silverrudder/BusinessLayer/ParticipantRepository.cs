@@ -12,7 +12,8 @@ namespace BusinessLayer
 
     public class ParticipantRepository : IRepository<Participant, ParticipantProperties, string>
     {
-        ImportCSVParticipantsFile importCSVParticipantsFile = new ImportCSVParticipantsFile();
+        ImportCSVParticipantFromHPFile importCSVParticipantFromHPFile = new ImportCSVParticipantFromHPFile();
+        SortParticipantAssignedCategori sortParticipantAssignedCategori = new SortParticipantAssignedCategori();
 
         public void Create(Participant Participant)
         {
@@ -71,9 +72,19 @@ namespace BusinessLayer
             else return false;
         }
 
-        public void GetParticipantsFromCSVFile(string path)
+        public List<Participant> GetParticipantsFromCSVSilverrudderHPFile(string path)
         {
-            importCSVParticipantsFile.ReadCSVFile(path);
+            List<Participant> participantFromCSVFile = new List<Participant>();
+
+            participantFromCSVFile = importCSVParticipantFromHPFile.ReadCSVFile(path);
+            return participantFromCSVFile;
         }
+
+        public void AssignParticipantsToParticipantAssignedCategories()
+        {
+            sortParticipantAssignedCategori.StartSorting();
+        }
+
+
     }
 }

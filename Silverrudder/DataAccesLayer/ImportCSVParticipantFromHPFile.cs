@@ -8,11 +8,12 @@ using Domain;
 
 namespace DataAccesLayer
 {
-    public class ImportCSVParticipantsFile
+    public class ImportCSVParticipantFromHPFile
     {
-        public void ReadCSVFile(string filePath)   //Returnerer en liste med hver linje i CSV-filen som en streng 
+        public List<Participant> ReadCSVFile(string filePath)   //Returnerer en liste med hver linje i CSV-filen som en streng 
         {
             List<string> listOfStrings = new List<string>();
+            List<Participant> participantList = new List<Participant>();
 
             using (var fs = File.OpenRead(filePath))
             using (var reader = new StreamReader(fs))
@@ -24,11 +25,14 @@ namespace DataAccesLayer
                     listOfStrings.AddRange(values);
                 }
             }
-            AddValuesFromCSVFile(listOfStrings);
+            participantList = AddValuesFromCSVFile(listOfStrings);
+            return participantList;
         }
 
-        private void AddValuesFromCSVFile(List<string> listOfStrings)
+        private List<Participant> AddValuesFromCSVFile(List<string> listOfStrings)
         {
+            List<Participant> participantsList = new List<Participant>();
+
             foreach (string line in listOfStrings)
             {
                 Participant participant = new Participant();
@@ -45,7 +49,11 @@ namespace DataAccesLayer
                 boat.SailNumber = values[5];
 
                 participant.Boat = boat;
+
+                participantsList.Add(participant);
             }
+
+            return participantsList;
         }
     }
 }
