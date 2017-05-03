@@ -12,7 +12,7 @@ namespace UI.UnitTest
     {        
         Participant Participant = new Participant();
         ParticipantRepository ParticipantRepository = new ParticipantRepository();
-        ImportCSVParticipantsFile importCSVParticipantsFile = new ImportCSVParticipantsFile();
+        ImportCSVParticipantFromHPFile importCSVParticipantsFile = new ImportCSVParticipantFromHPFile();
         SortParticipantAssignedCategori sortParticipantAssignedCategori = new SortParticipantAssignedCategori();
 
         [TestMethod]
@@ -78,7 +78,6 @@ namespace UI.UnitTest
         public void ModifyParticipant_AssignParticipantsToCategories_39ParticipantsFoundInCategory()
         {
             importCSVParticipantsFile.ReadCSVFile(@"C:\Users\Christian\Desktop\Silverrudder\Participants.csv");
-            sortParticipantAssignedCategori.FindNewCategories();
 
             int count = 0;
             for (int i = 0; i < CategoryList.Instance.categoryList.Count; i++)

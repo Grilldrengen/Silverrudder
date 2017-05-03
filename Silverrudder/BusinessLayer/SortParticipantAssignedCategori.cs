@@ -15,12 +15,17 @@ namespace BusinessLayer
         List<Category> categoryList = new List<Category>();
         ObservableCollection<Participant> participantList = new ObservableCollection<Participant>();
 
-        public void FindNewCategories()
+        internal void StartSorting()
         {
             participantList = participantRepository.GetAll();
+            FindNewCategories(participantList);
+        }
+
+        private void FindNewCategories(List<Participant> allParticipants)
+        {
             List<string> categories = new List<string>();
 
-            foreach (Participant participant in participantList)
+            foreach (Participant participant in allParticipants)
             {
                 if (!categories.Contains(participant.CategoryAssignedByParticipant))
                 {
