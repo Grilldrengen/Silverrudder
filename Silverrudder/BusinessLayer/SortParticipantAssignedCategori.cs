@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
+using System.Collections.ObjectModel;
 
 namespace BusinessLayer
 {
@@ -12,7 +13,7 @@ namespace BusinessLayer
         ParticipantRepository participantRepository = new ParticipantRepository();
         CategoryRepository categoryRepository = new CategoryRepository();
         List<Category> categoryList = new List<Category>();
-        List<Participant> participantList = new List<Participant>();
+        ObservableCollection<Participant> participantList = new ObservableCollection<Participant>();
 
         public void FindNewCategories()
         {

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UI.ViewModels;
+using BusinessLayer;
 
 namespace UI.Views
 {
@@ -27,7 +28,10 @@ namespace UI.Views
         public ManageParticipant()
         {
             InitializeComponent();
-            
+
+            if (System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
+                return;
+
             viewModel = new ManageParticipantVM();
             DataContext = viewModel;
         } 

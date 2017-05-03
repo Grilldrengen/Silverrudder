@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain;
 using DataAccesLayer;
+using System.Collections.ObjectModel;
 
 namespace BusinessLayer
 {
@@ -54,7 +55,7 @@ namespace BusinessLayer
             }
         }
 
-        public List<Participant> GetAll()
+        public ObservableCollection<Participant> GetAll()
         {
             return ParticipantList.Instance.participantList;
         }
