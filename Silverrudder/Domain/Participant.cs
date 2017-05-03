@@ -13,6 +13,7 @@ namespace Domain
         public string Name { get; set; }
         public string Country { get; set; }
         public int ParticipantNumber { get; set; }
+        public string CategoryAssignedByParticipant { get; set; }
         public Boat Boat { get; set; }
 
         public Participant()

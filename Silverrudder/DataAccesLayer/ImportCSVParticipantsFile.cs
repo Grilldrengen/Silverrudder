@@ -40,11 +40,11 @@ namespace DataAccesLayer
                 string[] values = line.Split(';');
 
                 participant.Name = values[0];
-                participant.Country = values[1];
+                participant.Country = values[1].Substring(0, 3).ToUpper();
+                participant.CategoryAssignedByParticipant = values[4];
 
                 boat.Model = values[2];
                 boat.Name = values[3];
-                boat.CategoryAssignedByParticipant = values[4];
                 boat.SailNumber = values[5];
 
                 participant.Boat = boat;

@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    class Category
+    public class Category
     {
         public string Name { get; set; }
         public float MinLength { get; set; }
         public float MaxLength { get; set; }
         public DateTime StartTime { get; set; }
-
+        public List<Participant> participants { get; set; }
+ 
         public Category()
         { }
 

@@ -51,6 +51,12 @@ namespace BusinessLayer
             }
         }
 
+        public List<Participant> GetAll()
+        {
+            return ParticipantList.Instance.participantList;
+        }
+
+
         private bool TryParseStringToInt(string value)
         {
             int participantNumber;

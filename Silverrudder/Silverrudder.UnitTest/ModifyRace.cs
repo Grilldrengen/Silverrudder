@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Domain;
 using BusinessLayer;
+using DataAccesLayer;
 
 
 namespace UI.UnitTest
@@ -10,8 +11,10 @@ namespace UI.UnitTest
     public class ModifySailRace
     {        
         Participant Participant = new Participant();
-        ParticipantRepository ParticipantRepository = new ParticipantRepository();   
-        
+        ParticipantRepository ParticipantRepository = new ParticipantRepository();
+        ImportCSVParticipantsFile importCSVParticipantsFile = new ImportCSVParticipantsFile();
+        SortParticipantAssignedCategori sortParticipantAssignedCategori = new SortParticipantAssignedCategori();
+
         [TestMethod]
         public void ModifyParticipant_Create_OneParticipantObjectCreated()
         {
@@ -57,6 +60,35 @@ namespace UI.UnitTest
             bool result = ParticipantRepository.Modify(Participant, ParticipantProperties.ParticipantNumber, "1234");
             Assert.AreEqual(Participant.ParticipantNumber, 1234);
             Assert.IsTrue(result);
+        }
+
+        ////Virker kun lokalt, ellers ændr stien
+        //[TestMethod]
+        //public void ModifyParticipant_FindNewCategories_SevenCategoriesFound()
+        //{
+        //    importCSVParticipantsFile.ReadCSVFile(@"C:\Users\Christian\Desktop\Silverrudder\Participants.csv");
+        //    sortParticipantAssignedCategori.FindNewCategories();
+
+        //    Assert.AreEqual(7, CategoryList.Instance.categoryList.Count);
+
+        //}
+
+        //Virker kun lokalt, ellers ændr stien
+        [TestMethod]
+        public void ModifyParticipant_AssignParticipantsToCategories_39ParticipantsFoundInCategory()
+        {
+            importCSVParticipantsFile.ReadCSVFile(@"C:\Users\Christian\Desktop\Silverrudder\Participants.csv");
+            sortParticipantAssignedCategori.FindNewCategories();
+
+            int count = 0;
+            for (int i = 0; i < CategoryList.Instance.categoryList.Count; i++)
+            {
+                if (CategoryList.Instance.categoryList[i].Name.Equals("Keelboats Extra Large"))
+                {
+                    count = CategoryList.Instance.categoryList[i].participants.Count;
+                }
+            }
+            Assert.AreEqual(39, count);
         }
 
         [TestCleanup]

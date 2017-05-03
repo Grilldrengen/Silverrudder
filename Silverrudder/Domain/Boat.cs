@@ -13,7 +13,6 @@ namespace Domain
         public string Model { get; set; }
         public float Length { get; set; }
         public string Colour { get; set; }
-        public string CategoryAssignedByParticipant { get; set; }
 
         public Boat()
         { }
