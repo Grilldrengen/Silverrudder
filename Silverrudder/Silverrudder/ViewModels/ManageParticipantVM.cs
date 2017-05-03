@@ -17,8 +17,6 @@ namespace UI.ViewModels
     {
         public ICommand CommandCreateParticipant { get; set; }
 
-        private ParticipantRepository pr;
-
         private ObservableCollection<Participant> participantsList;
         public ObservableCollection<Participant> ParticipantsList
         {
