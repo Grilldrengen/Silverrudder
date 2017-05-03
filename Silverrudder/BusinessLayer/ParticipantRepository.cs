@@ -56,7 +56,7 @@ namespace BusinessLayer
             }
         }
 
-        public ObservableCollection<Participant> GetAll()
+        public static ObservableCollection<Participant> GetAll()
         {
             return ParticipantList.Instance.participantList;
         }
@@ -73,9 +73,9 @@ namespace BusinessLayer
             else return false;
         }
 
-        public List<Participant> GetParticipantsFromCSVSilverrudderHPFile(string path)
+        public ObservableCollection<Participant> GetParticipantsFromCSVSilverrudderHPFile(string path)
         {
-            List<Participant> participantFromCSVFile = new List<Participant>();
+            ObservableCollection<Participant> participantFromCSVFile = new ObservableCollection<Participant>();
 
             participantFromCSVFile = importCSVParticipantFromHPFile.ReadCSVFile(path);
             return participantFromCSVFile;

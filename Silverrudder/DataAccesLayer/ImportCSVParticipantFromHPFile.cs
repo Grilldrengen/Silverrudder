@@ -5,15 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
+using System.Collections.ObjectModel;
 
 namespace DataAccesLayer
 {
     public class ImportCSVParticipantFromHPFile
     {
-        public List<Participant> ReadCSVFile(string filePath)   //Returnerer en liste med hver linje i CSV-filen som en streng 
+        public ObservableCollection<Participant> ReadCSVFile(string filePath)   //Returnerer en liste med hver linje i CSV-filen som en streng 
         {
             List<string> listOfStrings = new List<string>();
-            List<Participant> participantList = new List<Participant>();
+            ObservableCollection<Participant> participantList = new ObservableCollection<Participant>();
 
             using (var fs = File.OpenRead(filePath))
             using (var reader = new StreamReader(fs))
@@ -29,9 +30,9 @@ namespace DataAccesLayer
             return participantList;
         }
 
-        private List<Participant> AddValuesFromCSVFile(List<string> listOfStrings)
+        private ObservableCollection<Participant> AddValuesFromCSVFile(List<string> listOfStrings)
         {
-            List<Participant> participantsList = new List<Participant>();
+            ObservableCollection<Participant> participantsList = new ObservableCollection<Participant>();
 
             foreach (string line in listOfStrings)
             {

@@ -167,8 +167,8 @@ namespace UI.ViewModels
         {
             CommandCreateParticipant = new Command(ExecuteCommandCreateParticipant, CanExecuteCommandCreateParticipant);
 
-            pr = new ParticipantRepository();
-            ParticipantsList = pr.GetAll();
+            
+            ParticipantsList = ParticipantRepository.GetAll();
         }
 
         public bool CanExecuteCommandCreateParticipant(object parameter)
@@ -178,7 +178,7 @@ namespace UI.ViewModels
 
         public void ExecuteCommandCreateParticipant(object parameter)
         {
-            
+            ParticipantRepository pr = new ParticipantRepository();
             Participant p = new Participant();
             Boat b = new Boat();
 
