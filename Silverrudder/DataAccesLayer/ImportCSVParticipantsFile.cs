@@ -5,14 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
-using BusinessLayer;
 
 namespace DataAccesLayer
 {
     public class ImportCSVParticipantsFile
     {
-        ParticipantRepository participantRepository = new ParticipantRepository();
-
         public void ReadCSVFile(string filePath)   //Returnerer en liste med hver linje i CSV-filen som en streng 
         {
             List<string> listOfStrings = new List<string>();
@@ -48,8 +45,6 @@ namespace DataAccesLayer
                 boat.SailNumber = values[5];
 
                 participant.Boat = boat;
-
-                participantRepository.Create(participant);
             }
         }
     }

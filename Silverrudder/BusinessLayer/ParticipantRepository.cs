@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
+using DataAccesLayer;
 
 namespace BusinessLayer
 {
@@ -11,6 +12,8 @@ namespace BusinessLayer
 
     public class ParticipantRepository : IRepository<Participant, ParticipantProperties, string>
     {
+        ImportCSVParticipantsFile importCSVParticipantsFile = new ImportCSVParticipantsFile();
+
         public void Create(Participant Participant)
         {
             ParticipantList.Instance.participantList.Add(Participant);
@@ -66,6 +69,11 @@ namespace BusinessLayer
                 return true;
 
             else return false;
+        }
+
+        public void GetParticipantsFromCSVFile(string path)
+        {
+            importCSVParticipantsFile.ReadCSVFile(path);
         }
     }
 }

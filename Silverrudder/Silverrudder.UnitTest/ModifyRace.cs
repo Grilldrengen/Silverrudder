@@ -85,7 +85,7 @@ namespace UI.UnitTest
             {
                 if (CategoryList.Instance.categoryList[i].Name.Equals("Keelboats Extra Large"))
                 {
-                    count = CategoryList.Instance.categoryList[i].participants.Count;
+                    count = CategoryList.Instance.categoryList[i].Participants.Count;
                 }
             }
             Assert.AreEqual(39, count);

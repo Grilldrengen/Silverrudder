@@ -12,7 +12,7 @@ namespace BusinessLayer
         ParticipantRepository participantRepository = new ParticipantRepository();
         CategoryRepository categoryRepository = new CategoryRepository();
         List<Category> categoryList = new List<Category>();
-        List<Participant> participantList;
+        List<Participant> participantList = new List<Participant>();
 
         public void FindNewCategories()
         {
@@ -41,16 +41,20 @@ namespace BusinessLayer
 
         private void AssignParticipantsToCategories()
         {
-            //participantList = participantRepository.GetAll();
-            //categoryList = categoryRepository.GetAll();
-            foreach (Category category in CategoryList.Instance.categoryList)
-            {
-                foreach (Participant participant in ParticipantList.Instance.participantList)
-                {
-                    if (participant.CategoryAssignedByParticipant.Equals(category.Name))
-                        category.participants.Add(participant);
-                }
-            }
+            //categoryList = CategoryList.Instance.categoryList;
+            //participantList = ParticipantList.Instance.participantList;
+
+            //for (int i = 0; i < categoryList.Count; i++)
+            //{
+            //    for (int j = 0; j < participantList.Count; j++)
+            //    {
+            //        if (!(categoryList[i].Participants.Contains(participantList[j])))
+            //        {
+            //            if (categoryList[i].Name.Equals(participantList[j].Name))
+            //                categoryList[i].Participants.Add(participantList[j]);                       
+            //        }
+            //    }
+            //}
         }
     }
 }
