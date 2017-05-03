@@ -80,7 +80,7 @@
       </DockPanel>
 
       <DockPanel Grid.Row='0' Grid.Column='4'>
-        <Button x:Name='CreateParticipantBtn' Content='Opret deltager' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom'/>
+        <Button x:Name='CreateParticipantBtn' Command="{Binding CommandCreateParticipant}" Content='Opret deltager' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom' Click='CreateParticipantBtn_Click'/>
       </DockPanel>
 
       <DockPanel Grid.Row='1' Grid.Column='4'>

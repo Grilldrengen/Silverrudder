@@ -47,6 +47,10 @@
     <Compile Include="SortParticipantAssignedCategori.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccesLayer\DataAccesLayer.csproj">
+      <Project>{e47eaf09-43b8-4706-8d4b-a78673b01fa7}</Project>
+      <Name>DataAccesLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{83f5b76a-d608-4b2c-a77e-74e309b0093c}</Project>
       <Name>Domain</Name>

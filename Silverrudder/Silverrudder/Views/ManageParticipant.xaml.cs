@@ -27,7 +27,7 @@ namespace UI.Views
         public ManageParticipant()
         {
             InitializeComponent();
-
+            
             viewModel = new ManageParticipantVM();
             DataContext = viewModel;
         } 

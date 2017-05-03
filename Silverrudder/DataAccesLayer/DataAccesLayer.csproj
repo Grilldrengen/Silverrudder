@@ -44,10 +44,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
-      <Project>{2df699c7-e7ab-467b-97b0-ac4ee0a01f9f}</Project>
-      <Name>BusinessLayer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{83f5b76a-d608-4b2c-a77e-74e309b0093c}</Project>
       <Name>Domain</Name>

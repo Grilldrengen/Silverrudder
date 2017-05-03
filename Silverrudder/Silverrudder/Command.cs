@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace UI
 {
-    class Command : ICommand
+    public class Command : ICommand
     {
         public delegate void ICommandOnExecute(object parameter);
         public delegate bool ICommandOnCanExecute(object parameter);
