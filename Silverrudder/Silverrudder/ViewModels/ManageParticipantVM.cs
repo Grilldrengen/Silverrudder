@@ -30,8 +30,9 @@ namespace UI.ViewModels
         {
             ParticipantRepository pr = new ParticipantRepository();
             Participant p = new Participant();
+        
 
-            p.Name = 
+            //p.Name = 
             
 
 

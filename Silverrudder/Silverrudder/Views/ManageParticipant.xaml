@@ -16,7 +16,7 @@
     </Grid.RowDefinitions>
 
     <DockPanel Grid.Row='0'>
-      <DataGrid x:Name='DgParticipantsList' />
+      <DataGrid x:Name='DgParticipantsList'  />
     </DockPanel>
 
     <Grid Grid.Row='1'>
