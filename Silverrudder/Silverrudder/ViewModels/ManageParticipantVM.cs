@@ -16,6 +16,7 @@ namespace UI.ViewModels
     class ManageParticipantVM : ModelBase
     {
         private ParticipantRepository participantRepository = new ParticipantRepository();
+        private BoatRepository boatRepository = new BoatRepository();
         public ICommand CommandCreateParticipant { get; set; }
         public ICommand CommandChangeParticipant { get; set; }
         public ICommand CommandDeleteParticipant { get; set; }
@@ -43,7 +44,7 @@ namespace UI.ViewModels
 
                         Captain = selectedParticipant.Name;
                         Country = SelectedParticipant.Country;
-                        BoatCategory = SelectedParticipant.CategoryAssignedByParticipant;
+                        BoatCategory = SelectedParticipant.Category;
                         participantNumber = SelectedParticipant.ParticipantNumber;
                     }
 
@@ -219,16 +220,28 @@ namespace UI.ViewModels
 
         public void ExecuteCommandChangeParticipant(object parameter)
         {
-            SelectedParticipant.Boat.Name = BoatName;
-            SelectedParticipant.Boat.SailNumber = SailNumber;
-            SelectedParticipant.Boat.Colour = BoatColour;
-            SelectedParticipant.Boat.Length = BoatLength;
-            SelectedParticipant.Boat.Model = BoatType;
+            participantRepository.Modify(SelectedParticipant, ParticipantProperties.Name, Captain);
+            participantRepository.Modify(SelectedParticipant, ParticipantProperties.Country, Country);
+            participantRepository.Modify(SelectedParticipant, ParticipantProperties.ParticipantNumber, ParticipantNumber);
 
-            SelectedParticipant.Name = Captain;
-            SelectedParticipant.Country = Country;
-            SelectedParticipant.CategoryAssignedByParticipant = BoatCategory;
-            SelectedParticipant.ParticipantNumber = participantNumber;
+            boatRepository.Modify(selectedParticipant.Boat, BoatProperties.Colour, BoatColour);
+            boatRepository.Modify(selectedParticipant.Boat, BoatProperties.Length, BoatLength.ToString());
+            boatRepository.Modify(selectedParticipant.Boat, BoatProperties.Model, BoatType);
+            boatRepository.Modify(selectedParticipant.Boat, BoatProperties.Name, BoatName);
+            boatRepository.Modify(selectedParticipant.Boat, BoatProperties.SailNumber, SailNumber);
+
+            //SelectedParticipant.Boat.Name = BoatName;
+            //SelectedParticipant.Boat.SailNumber = SailNumber;
+            //SelectedParticipant.Boat.Colour = BoatColour;
+            //SelectedParticipant.Boat.Length = BoatLength;
+            //SelectedParticipant.Boat.Model = BoatType;
+
+            //SelectedParticipant.Name = Captain;
+            //SelectedParticipant.Country = Country;
+            //SelectedParticipant.Category = BoatCategory;
+            //SelectedParticipant.ParticipantNumber = participantNumber;
+
+
         }
 
         public bool CanExecuteCommandCreateParticipant(object parameter)
@@ -257,7 +270,7 @@ namespace UI.ViewModels
 
             p.Name = Captain;
             p.Country = Country;
-            p.CategoryAssignedByParticipant = BoatCategory;
+            p.Category = BoatCategory;
             p.ParticipantNumber = participantNumber;
 
             p.Boat = b;

@@ -52,15 +52,15 @@ namespace Domain
             }
         }
 
-        private string categoryAssignedByParticepant;
-        public string CategoryAssignedByParticipant
+        private string category;
+        public string Category
         {
-            get { return categoryAssignedByParticepant; }
+            get { return category; }
             set
             {
-                if (value != categoryAssignedByParticepant)
+                if (value != category)
                 {
-                    categoryAssignedByParticepant = value;
+                    category = value;
                     NotifyPropertyChanged();
                 }
             }

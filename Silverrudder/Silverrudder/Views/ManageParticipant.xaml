@@ -23,7 +23,7 @@
           <DataGridTextColumn Header='Land' Binding='{Binding Country}'/>
           <DataGridTextColumn Header='Bådtype' Binding='{Binding Boat.Model}'/>
           <DataGridTextColumn Header='Bådnavn' Binding='{Binding Boat.Name}'/>
-          <DataGridTextColumn Header='Bådkategori' Binding='{Binding CategoryAssignedByParticipant}'/>
+          <DataGridTextColumn Header='Bådkategori' Binding='{Binding Category}'/>
           <DataGridTextColumn Header='Sejlnummer' Binding='{Binding Boat.SailNumber}'/>
           <DataGridTextColumn Header='Deltagernummer' Binding='{Binding ParticipantNumber}'/>
           <DataGridTextColumn Header='Bådfarve' Binding='{Binding Boat.Colour}'/>

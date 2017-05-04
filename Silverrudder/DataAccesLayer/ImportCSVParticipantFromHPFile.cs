@@ -43,7 +43,7 @@ namespace DataAccesLayer
 
                 participant.Name = values[0];
                 participant.Country = values[1].Substring(0, 3).ToUpper();
-                participant.CategoryAssignedByParticipant = values[4];
+                participant.Category = values[4];
 
                 boat.Model = values[2];
                 boat.Name = values[3];

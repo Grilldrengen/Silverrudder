@@ -37,13 +37,9 @@ namespace BusinessLayer
                     return true;
 
                 case ParticipantProperties.Country:
-                    if (newValue.Length == 3)
-                    {
+                
                         Participant.Country = newValue.ToUpper();
                         return true;
-                    }
-                    else
-                        return false;
 
                 case ParticipantProperties.ParticipantNumber:
                     bool result = TryParseStringToInt(newValue);

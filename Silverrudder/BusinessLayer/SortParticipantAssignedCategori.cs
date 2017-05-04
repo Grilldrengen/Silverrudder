@@ -21,9 +21,9 @@ namespace BusinessLayer
 
             foreach (Participant participant in participants)
             {
-                if (!categories.Contains(participant.CategoryAssignedByParticipant))
+                if (!categories.Contains(participant.Category))
                 {
-                    categories.Add(participant.CategoryAssignedByParticipant);
+                    categories.Add(participant.Category);
                 }
             }
             AddFoundCategories(categories);
@@ -45,7 +45,7 @@ namespace BusinessLayer
             {
                 foreach (Participant participant in ParticipantList.Instance.participantList)
                 {
-                    if (category.Name.Equals(participant.CategoryAssignedByParticipant))
+                    if (category.Name.Equals(participant.Category))
                         category.Participants.Add(participant);
                 }
             }
