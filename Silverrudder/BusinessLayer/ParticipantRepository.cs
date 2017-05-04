@@ -26,22 +26,7 @@ namespace BusinessLayer
             ParticipantList.Instance.participantList.Remove(Participant);
         }
 
-        public void Change(Participant participant)
-        {
-            participant = ParticipantList.Instance.participantList.FirstOrDefault(p => p.ParticipantNumber == participant.ParticipantNumber);
-            if (participant != null)
-            {
-                participant.Name = participant.Name;
-                participant.Country = participant.Country;
-                participant.Boat.Model = participant.Boat.Model;
-                participant.Boat.Name = participant.Boat.Name;
-                participant.CategoryAssignedByParticipant = participant.CategoryAssignedByParticipant;
-                participant.Boat.SailNumber = participant.Boat.SailNumber;
-                participant.ParticipantNumber = participant.ParticipantNumber;
-                participant.Boat.Colour = participant.Boat.Colour;
-                participant.Boat.Length = participant.Boat.Length;
-            }
-        }
+
 
         public ObservableCollection<Participant> GetAll()
         {

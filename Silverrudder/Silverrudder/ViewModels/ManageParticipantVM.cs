@@ -219,7 +219,6 @@ namespace UI.ViewModels
 
         public void ExecuteCommandChangeParticipant(object parameter)
         {
-            //ParticipantRepository.Change(selectedParticipant);
             SelectedParticipant.Boat.Name = BoatName;
             SelectedParticipant.Boat.SailNumber = SailNumber;
             SelectedParticipant.Boat.Colour = BoatColour;

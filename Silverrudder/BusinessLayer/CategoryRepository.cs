@@ -20,6 +20,8 @@ namespace BusinessLayer
             CategoryList.Instance.categoryList.Remove(category);
         }
 
+
+
         public List<Category> GetAll()
         {
             return CategoryList.Instance.categoryList;
