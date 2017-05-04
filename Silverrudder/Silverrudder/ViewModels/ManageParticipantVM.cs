@@ -229,7 +229,6 @@ namespace UI.ViewModels
             SelectedParticipant.Country = Country;
             SelectedParticipant.CategoryAssignedByParticipant = BoatCategory;
             SelectedParticipant.ParticipantNumber = participantNumber;
-
         }
 
         public bool CanExecuteCommandCreateParticipant(object parameter)

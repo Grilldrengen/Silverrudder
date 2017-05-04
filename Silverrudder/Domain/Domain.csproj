@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Boat.cs" />
     <Compile Include="CategoryList.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="Participant.cs" />
     <Compile Include="ParticipantList.cs" />
     <Compile Include="Category.cs" />
