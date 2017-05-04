@@ -30,14 +30,14 @@ namespace BusinessLayer
 
         public void Create(Participant Participant)
         {
-            Participant part = ParticipantRepository.Instance.list.FirstOrDefault(p => p.ParticipantNumber == Participant.ParticipantNumber);
+            Participant part = Instance.list.FirstOrDefault(p => p.ParticipantNumber == Participant.ParticipantNumber);
             if (part == null)
-                ParticipantRepository.Instance.list.Add(Participant);
+                Instance.list.Add(Participant);
         }
 
         public void Delete(Participant Participant)
         {
-            ParticipantRepository.Instance.list.Remove(Participant);
+            Instance.list.Remove(Participant);
         }
 
         public bool Modify(Participant Participant, ParticipantProperties property, string newValue)
@@ -69,7 +69,7 @@ namespace BusinessLayer
 
         public ObservableCollection<Participant> GetAll()
         {
-            return ParticipantRepository.Instance.list;
+            return Instance.list;
         }
 
         private bool TryParseStringToInt(string value)

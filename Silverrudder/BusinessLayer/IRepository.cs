@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace BusinessLayer
 {
 
         public interface IRepository<T, X, Y>
