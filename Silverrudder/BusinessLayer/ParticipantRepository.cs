@@ -16,16 +16,28 @@ namespace BusinessLayer
         ImportCSVParticipantFromHPFile importCSVParticipantFromHPFile = new ImportCSVParticipantFromHPFile();
         SortParticipantAssignedCategori sortParticipantAssignedCategori = new SortParticipantAssignedCategori();
 
+        private static readonly ParticipantRepository _instance = new ParticipantRepository();
+
+        public static ParticipantRepository Instance
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+        public ObservableCollection<Participant> list = new ObservableCollection<Participant>();
+
+
         public void Create(Participant Participant)
         {
-            Participant part = ParticipantList.Instance.participantList.FirstOrDefault(p => p.ParticipantNumber == Participant.ParticipantNumber);
+            Participant part = ParticipantRepository.Instance.list.FirstOrDefault(p => p.ParticipantNumber == Participant.ParticipantNumber);
             if (part == null)
-                ParticipantList.Instance.participantList.Add(Participant);
+                ParticipantRepository.Instance.list.Add(Participant);
         }
 
         public void Delete(Participant Participant)
         {
-            ParticipantList.Instance.participantList.Remove(Participant);
+            ParticipantRepository.Instance.list.Remove(Participant);
         }
 
         public bool Modify(Participant Participant, ParticipantProperties property, string newValue)
@@ -57,7 +69,7 @@ namespace BusinessLayer
 
         public ObservableCollection<Participant> GetAll()
         {
-            return ParticipantList.Instance.participantList;
+            return ParticipantRepository.Instance.list;
         }
 
         private bool TryParseStringToInt(string value)

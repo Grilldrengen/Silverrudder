@@ -12,7 +12,7 @@ namespace BusinessLayer
     {
         internal void StartSorting()
         {
-            FindNewCategories(ParticipantList.Instance.participantList);
+            FindNewCategories(ParticipantRepository.Instance.list);
         }
 
         private void FindNewCategories(ObservableCollection<Participant> participants)
@@ -34,16 +34,16 @@ namespace BusinessLayer
             foreach (string categoryDescription in foundCategoriesList)
             {
                 Category category = new Category(categoryDescription);
-                CategoryList.Instance.categoryList.Add(category);
+                CategoryRepository.Instance.list.Add(category);
             }
             SortParticipantAssignedCategories();
         }
 
         private void SortParticipantAssignedCategories()
         {
-            foreach (Category category in CategoryList.Instance.categoryList)
+            foreach (Category category in CategoryRepository.Instance.list)
             {
-                foreach (Participant participant in ParticipantList.Instance.participantList)
+                foreach (Participant participant in ParticipantRepository.Instance.list)
                 {
                     if (category.Name.Equals(participant.Category))
                         category.Participants.Add(participant);

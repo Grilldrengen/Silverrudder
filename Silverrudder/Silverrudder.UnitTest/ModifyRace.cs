@@ -19,25 +19,25 @@ namespace UI.UnitTest
         public void ModifyParticipant_Create_OneParticipantObjectCreated()
         {
             ParticipantRepository.Create(Participant);
-            int listCount = ParticipantList.Instance.participantList.Count;
+            int listCount = ParticipantRepository.Instance.list.Count;
 
-            Assert.AreEqual(Participant, ParticipantList.Instance.participantList[listCount - 1]);
+            Assert.AreEqual(Participant, ParticipantRepository.Instance.list[listCount - 1]);
         }
 
         [TestMethod]
         public void ModifyParticipant_Delete_ParticipantObjectDeleted()
         {
-            ParticipantList.Instance.participantList.Add(Participant = new Participant());
+            ParticipantRepository.Instance.list.Add(Participant = new Participant());
 
             ParticipantRepository.Delete(Participant);
 
-            Assert.IsFalse(ParticipantList.Instance.participantList.Contains(Participant));
+            Assert.IsFalse(ParticipantRepository.Instance.list.Contains(Participant));
         }
 
         [TestMethod]
         public void ModifyParticipant_Modify_CanChangeName()
         {
-            ParticipantList.Instance.participantList.Add(Participant = new Participant("test"));
+            ParticipantRepository.Instance.list.Add(Participant = new Participant("test"));
 
             bool result = ParticipantRepository.Modify(Participant, ParticipantProperties.Name, "Changed");
 
@@ -80,11 +80,11 @@ namespace UI.UnitTest
             importCSVParticipantsFile.ReadCSVFile(@"C:\Users\Christian\Desktop\Silverrudder\Participants.csv");
 
             int count = 0;
-            for (int i = 0; i < CategoryList.Instance.categoryList.Count; i++)
+            for (int i = 0; i < CategoryRepository.Instance.list.Count; i++)
             {
-                if (CategoryList.Instance.categoryList[i].Name.Equals("Keelboats Extra Large"))
+                if (CategoryRepository.Instance.list[i].Name.Equals("Keelboats Extra Large"))
                 {
-                    count = CategoryList.Instance.categoryList[i].Participants.Count;
+                    count = CategoryRepository.Instance.list[i].Participants.Count;
                 }
             }
             Assert.AreEqual(39, count);
@@ -93,7 +93,7 @@ namespace UI.UnitTest
         [TestCleanup]
         public void CleanUp_ClearList()
         {
-            ParticipantList.Instance.participantList.Clear();
+            ParticipantRepository.Instance.list.Clear();
         }
     }
 }

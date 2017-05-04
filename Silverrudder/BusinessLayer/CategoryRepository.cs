@@ -11,15 +11,26 @@ namespace BusinessLayer
 
     public class CategoryRepository : IRepository<Category, CategoryProperties, string>
     {
+        private static readonly CategoryRepository _instance = new CategoryRepository();
+
+        public static CategoryRepository Instance
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+        public List<Category> list = new List<Category>();
+
 
         public void Create(Category category)
         {
-            CategoryList.Instance.categoryList.Add(category);
+            CategoryRepository.Instance.list.Add(category);
         }
 
         public void Delete(Category category)
         {
-            CategoryList.Instance.categoryList.Remove(category);
+            CategoryRepository.Instance.list.Remove(category);
         }
 
         public bool Modify(Category category, CategoryProperties property, string newValue)
@@ -55,7 +66,7 @@ namespace BusinessLayer
 
         public List<Category> GetAll()
         {
-            return CategoryList.Instance.categoryList;
+            return CategoryRepository.Instance.list;
         }
 
         private bool TryParseStringToFloat(string value)
