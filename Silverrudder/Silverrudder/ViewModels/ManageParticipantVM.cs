@@ -15,6 +15,7 @@ namespace UI.ViewModels
 {
     class ManageParticipantVM : ModelBase
     {
+        private ParticipantRepository participantRepository = new ParticipantRepository();
         public ICommand CommandCreateParticipant { get; set; }
         public ICommand CommandChangeParticipant { get; set; }
         public ICommand CommandDeleteParticipant { get; set; }
@@ -198,7 +199,7 @@ namespace UI.ViewModels
             CommandChangeParticipant = new Command(ExecuteCommandChangeParticipant, CanExecuteCommandChangeParticipant);
             CommandDeleteParticipant = new Command(ExecuteCommandDeleteParticipant, CanExecuteCommandDeleteParticipant);
 
-            ParticipantsList = ParticipantRepository.GetAll();
+            ParticipantsList = participantRepository.GetAll();
         }
 
         public bool CanExecuteCommandDeleteParticipant(object parameter)
@@ -208,7 +209,7 @@ namespace UI.ViewModels
 
         public void ExecuteCommandDeleteParticipant(object parameter)
         {
-            ParticipantRepository.Delete(selectedParticipant);
+            participantRepository.Delete(selectedParticipant);
         }
 
         public bool CanExecuteCommandChangeParticipant(object parameter)
@@ -263,7 +264,7 @@ namespace UI.ViewModels
 
             p.Boat = b;
 
-            ParticipantRepository.Create(p);
+            participantRepository.Create(p);
         }
     }
 }

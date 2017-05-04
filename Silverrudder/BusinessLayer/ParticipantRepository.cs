@@ -14,19 +14,19 @@ namespace BusinessLayer
         ImportCSVParticipantFromHPFile importCSVParticipantFromHPFile = new ImportCSVParticipantFromHPFile();
         SortParticipantAssignedCategori sortParticipantAssignedCategori = new SortParticipantAssignedCategori();
 
-        public static void Create(Participant Participant)
+        public void Create(Participant Participant)
         {
             Participant part = ParticipantList.Instance.participantList.FirstOrDefault(p => p.ParticipantNumber == Participant.ParticipantNumber);
             if (part == null)
                 ParticipantList.Instance.participantList.Add(Participant);
         }
 
-        public static void Delete(Participant Participant)
+        public void Delete(Participant Participant)
         {
             ParticipantList.Instance.participantList.Remove(Participant);
         }
 
-        public static void Change(Participant participant)
+        public void Change(Participant participant)
         {
             participant = ParticipantList.Instance.participantList.FirstOrDefault(p => p.ParticipantNumber == participant.ParticipantNumber);
             if (participant != null)
@@ -43,7 +43,7 @@ namespace BusinessLayer
             }
         }
 
-        public static ObservableCollection<Participant> GetAll()
+        public ObservableCollection<Participant> GetAll()
         {
             return ParticipantList.Instance.participantList;
         }

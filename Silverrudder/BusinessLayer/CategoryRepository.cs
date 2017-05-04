@@ -10,12 +10,12 @@ namespace BusinessLayer
     public class CategoryRepository
     {
 
-        public static void Create(Category category)
+        public void Create(Category category)
         {
             CategoryList.Instance.categoryList.Add(category);
         }
 
-        public static void Delete(Category category)
+        public void Delete(Category category)
         {
             CategoryList.Instance.categoryList.Remove(category);
         }

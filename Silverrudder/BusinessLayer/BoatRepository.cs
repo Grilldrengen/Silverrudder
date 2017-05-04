@@ -9,11 +9,11 @@ namespace BusinessLayer
 {
     public class BoatRepository
     {
-        public static void Create(Boat boat)
+        public void Create(Boat boat)
         {
         }
 
-        public static void Delete(Boat boat)
+        public void Delete(Boat boat)
         {
         }
 
