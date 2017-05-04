@@ -13,13 +13,16 @@ namespace Domain
         public float MaxLength { get; set; }
         public DateTime StartTime { get; set; }
         public List<Participant> Participants { get; set; }
- 
+
         public Category()
-        { }
+        {
+            this.Participants = new List<Participant>();
+        }
 
         public Category(string name)
         {
             this.Name = name;
+            this.Participants = new List<Participant>();
         }
 
         public Category(string name, float minLength, float maxLength, DateTime startTime)
@@ -28,6 +31,7 @@ namespace Domain
             this.MinLength = minLength;
             this.MaxLength = maxLength;
             this.StartTime = startTime;
-        }        
+            this.Participants = new List<Participant>();
+        }
     }
 }

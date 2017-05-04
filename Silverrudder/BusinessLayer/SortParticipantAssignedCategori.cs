@@ -10,22 +10,16 @@ namespace BusinessLayer
 {
     public class SortParticipantAssignedCategori
     {
-        CategoryRepository categoryRepository = new CategoryRepository();
-        ParticipantRepository participantRepository = new ParticipantRepository();
-        List<Category> categoryList = new List<Category>();
-        ObservableCollection<Participant> participantList = new ObservableCollection<Participant>();
-
         internal void StartSorting()
         {
-            participantList = participantRepository.GetAll();
-            FindNewCategories(participantList);
+            FindNewCategories(ParticipantList.Instance.participantList);
         }
 
-        private void FindNewCategories(ObservableCollection<Participant> allParticipants)
+        private void FindNewCategories(ObservableCollection<Participant> participants)
         {
             List<string> categories = new List<string>();
 
-            foreach (Participant participant in allParticipants)
+            foreach (Participant participant in participants)
             {
                 if (!categories.Contains(participant.CategoryAssignedByParticipant))
                 {
@@ -40,27 +34,21 @@ namespace BusinessLayer
             foreach (string categoryDescription in foundCategoriesList)
             {
                 Category category = new Category(categoryDescription);
-                categoryRepository.Create(category);
+                CategoryList.Instance.categoryList.Add(category);
             }
-            AssignParticipantsToCategories();
+            SortParticipantAssignedCategories();
         }
 
-        private void AssignParticipantsToCategories()
+        private void SortParticipantAssignedCategories()
         {
-            //categoryList = CategoryList.Instance.categoryList;
-            //participantList = ParticipantList.Instance.participantList;
-
-            //for (int i = 0; i < categoryList.Count; i++)
-            //{
-            //    for (int j = 0; j < participantList.Count; j++)
-            //    {
-            //        if (!(categoryList[i].Participants.Contains(participantList[j])))
-            //        {
-            //            if (categoryList[i].Name.Equals(participantList[j].Name))
-            //                categoryList[i].Participants.Add(participantList[j]);                       
-            //        }
-            //    }
-            //}
+            foreach (Category category in CategoryList.Instance.categoryList)
+            {
+                foreach (Participant participant in ParticipantList.Instance.participantList)
+                {
+                    if (category.Name.Equals(participant.CategoryAssignedByParticipant))
+                        category.Participants.Add(participant);
+                }
+            }
         }
     }
 }
