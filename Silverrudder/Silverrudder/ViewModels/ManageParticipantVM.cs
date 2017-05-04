@@ -19,6 +19,8 @@ namespace UI.ViewModels
         public ICommand CommandChangeParticipant { get; set; }
         public ICommand CommandDeleteParticipant { get; set; }
 
+        #region Properties
+
         private Participant selectedParticipant;
         public Participant SelectedParticipant
         {
@@ -61,8 +63,6 @@ namespace UI.ViewModels
                 }
             }
         }
-
-        #region Properties
 
         private string captain;
         public string Captain
@@ -246,8 +246,6 @@ namespace UI.ViewModels
 
         public void ExecuteCommandCreateParticipant(object parameter)
         {
-
-            Participant p = new Participant();
             Boat b = new Boat();
 
             b.Name = BoatName;
@@ -256,10 +254,13 @@ namespace UI.ViewModels
             b.Length = BoatLength;
             b.Model = BoatType;
 
+            Participant p = new Participant();
+
             p.Name = Captain;
             p.Country = Country;
             p.CategoryAssignedByParticipant = BoatCategory;
             p.ParticipantNumber = participantNumber;
+
             p.Boat = b;
 
             ParticipantRepository.Create(p);
