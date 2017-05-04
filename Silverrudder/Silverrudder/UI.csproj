@@ -74,7 +74,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModelBase.cs" />
     <Compile Include="ViewModels\ManageParticipantVM.cs" />
     <Compile Include="Views\ManageParticipant.xaml.cs">
       <DependentUpon>ManageParticipant.xaml</DependentUpon>

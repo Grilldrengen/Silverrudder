@@ -9,50 +9,37 @@ using System.Collections.ObjectModel;
 
 namespace BusinessLayer
 {
-    public enum ParticipantProperties { Name, Country, ParticipantNumber};
-
-    public class ParticipantRepository : IRepository<Participant, ParticipantProperties, string>
+    public class ParticipantRepository
     {
         ImportCSVParticipantFromHPFile importCSVParticipantFromHPFile = new ImportCSVParticipantFromHPFile();
         SortParticipantAssignedCategori sortParticipantAssignedCategori = new SortParticipantAssignedCategori();
 
-        public void Create(Participant Participant)
+        public static void Create(Participant Participant)
         {
-            ParticipantList.Instance.participantList.Add(Participant);
+            Participant part = ParticipantList.Instance.participantList.FirstOrDefault(p => p.ParticipantNumber == Participant.ParticipantNumber);
+            if (part == null)
+                ParticipantList.Instance.participantList.Add(Participant);
         }
 
-        public void Delete(Participant Participant)
+        public static void Delete(Participant Participant)
         {
             ParticipantList.Instance.participantList.Remove(Participant);
         }
 
-        public bool Modify(Participant Participant, ParticipantProperties property, string newValue)
+        public static void Change(Participant participant)
         {
-            switch (property)
+            participant = ParticipantList.Instance.participantList.FirstOrDefault(p => p.ParticipantNumber == participant.ParticipantNumber);
+            if (participant != null)
             {
-                case ParticipantProperties.Name:
-                    Participant.Name = newValue;
-                    return true;
-
-                case ParticipantProperties.Country:
-                    if (newValue.Length == 3)
-                    {
-                        Participant.Country = newValue.ToUpper();
-                        return true;
-                    }
-                    else
-                        return false;
-
-                case ParticipantProperties.ParticipantNumber:
-                    bool result = TryParseStringToInt(newValue);
-                    if (result == false)
-                        return false;
-                    else                    
-                        Participant.ParticipantNumber = int.Parse(newValue);
-                        return true;
-                    
-                      default:
-                    return false;
+                participant.Name = participant.Name;
+                participant.Country = participant.Country;
+                participant.Boat.Model = participant.Boat.Model;
+                participant.Boat.Name = participant.Boat.Name;
+                participant.CategoryAssignedByParticipant = participant.CategoryAssignedByParticipant;
+                participant.Boat.SailNumber = participant.Boat.SailNumber;
+                participant.ParticipantNumber = participant.ParticipantNumber;
+                participant.Boat.Colour = participant.Boat.Colour;
+                participant.Boat.Length = participant.Boat.Length;
             }
         }
 
@@ -60,7 +47,6 @@ namespace BusinessLayer
         {
             return ParticipantList.Instance.participantList;
         }
-
 
         private bool TryParseStringToInt(string value)
         {

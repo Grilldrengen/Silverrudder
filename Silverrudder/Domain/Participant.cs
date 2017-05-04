@@ -7,14 +7,78 @@ using Domain;
 
 namespace Domain
 {
-    public class Participant
+    public class Participant : ModelBase
     {
 
-        public string Name { get; set; }
-        public string Country { get; set; }
-        public int ParticipantNumber { get; set; }
-        public string CategoryAssignedByParticipant { get; set; }
-        public Boat Boat { get; set; }
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (value != name)
+                {
+                    name = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private string country;
+        public string Country
+        {
+            get { return country; }
+            set
+            {
+                if (value != country)
+                {
+                    country = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private int participantNumber;
+        public int ParticipantNumber
+        {
+            get { return participantNumber; }
+            set
+            {
+                if (value != participantNumber)
+                {
+                    participantNumber = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private string categoryAssignedByParticepant;
+        public string CategoryAssignedByParticipant
+        {
+            get { return categoryAssignedByParticepant; }
+            set
+            {
+                if (value != categoryAssignedByParticepant)
+                {
+                    categoryAssignedByParticepant = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private Boat boat;
+        public Boat Boat
+        {
+            get { return boat; }
+            set
+            {
+                if (value != boat)
+                {
+                    boat = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
         public Participant()
         { }

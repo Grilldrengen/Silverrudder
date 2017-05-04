@@ -13,9 +13,40 @@ using System.Collections.ObjectModel;
 
 namespace UI.ViewModels
 {
-    class ManageParticipantVM : ViewModelBase
+    class ManageParticipantVM : ModelBase
     {
         public ICommand CommandCreateParticipant { get; set; }
+        public ICommand CommandChangeParticipant { get; set; }
+        public ICommand CommandDeleteParticipant { get; set; }
+
+        private Participant selectedParticipant;
+        public Participant SelectedParticipant
+        {
+            get { return selectedParticipant; }
+            set
+            {
+                if (value != selectedParticipant)
+                {
+                    selectedParticipant = value;
+                    NotifyPropertyChanged();
+
+                    if (SelectedParticipant != null)
+                    {
+                        BoatName = selectedParticipant.Boat.Name;
+                        SailNumber = selectedParticipant.Boat.SailNumber;
+                        BoatColour = SelectedParticipant.Boat.Colour;
+                        BoatLength = SelectedParticipant.Boat.Length;
+                        BoatType = SelectedParticipant.Boat.Model;
+
+                        Captain = selectedParticipant.Name;
+                        Country = SelectedParticipant.Country;
+                        BoatCategory = SelectedParticipant.CategoryAssignedByParticipant;
+                        participantNumber = SelectedParticipant.ParticipantNumber;
+                    }
+
+                }
+            }
+        }
 
         private ObservableCollection<Participant> participantsList;
         public ObservableCollection<Participant> ParticipantsList
@@ -118,28 +149,28 @@ namespace UI.ViewModels
         }
 
         private int participantNumber;
-        public int ParticipantNumber
+        public string ParticipantNumber
         {
-            get { return participantNumber; }
+            get { return participantNumber.ToString(); }
             set
             {
-                if (value != participantNumber)
+                if (value != participantNumber.ToString())
                 {
-                    participantNumber = value;
+                    int.TryParse(value, out participantNumber);
                     NotifyPropertyChanged();
                 }
             }
         }
 
-        private string boatColor;
-        public string BoatColor
+        private string boatColour;
+        public string BoatColour
         {
-            get { return boatColor; }
+            get { return boatColour; }
             set
             {
-                if (value != boatColor)
+                if (value != boatColour)
                 {
-                    boatColor = value;
+                    boatColour = value;
                     NotifyPropertyChanged();
                 }
             }
@@ -164,41 +195,74 @@ namespace UI.ViewModels
         public ManageParticipantVM()
         {
             CommandCreateParticipant = new Command(ExecuteCommandCreateParticipant, CanExecuteCommandCreateParticipant);
+            CommandChangeParticipant = new Command(ExecuteCommandChangeParticipant, CanExecuteCommandChangeParticipant);
+            CommandDeleteParticipant = new Command(ExecuteCommandDeleteParticipant, CanExecuteCommandDeleteParticipant);
 
-            
             ParticipantsList = ParticipantRepository.GetAll();
+        }
+
+        public bool CanExecuteCommandDeleteParticipant(object parameter)
+        {
+            return true;
+        }
+
+        public void ExecuteCommandDeleteParticipant(object parameter)
+        {
+            ParticipantRepository.Delete(selectedParticipant);
+        }
+
+        public bool CanExecuteCommandChangeParticipant(object parameter)
+        {
+            return true;
+        }
+
+        public void ExecuteCommandChangeParticipant(object parameter)
+        {
+            //ParticipantRepository.Change(selectedParticipant);
+            SelectedParticipant.Boat.Name = BoatName;
+            SelectedParticipant.Boat.SailNumber = SailNumber;
+            SelectedParticipant.Boat.Colour = BoatColour;
+            SelectedParticipant.Boat.Length = BoatLength;
+            SelectedParticipant.Boat.Model = BoatType;
+
+            SelectedParticipant.Name = Captain;
+            SelectedParticipant.Country = Country;
+            SelectedParticipant.CategoryAssignedByParticipant = BoatCategory;
+            SelectedParticipant.ParticipantNumber = participantNumber;
+
         }
 
         public bool CanExecuteCommandCreateParticipant(object parameter)
         {
+            if (participantNumber == 0)
+                return false;
+
+            int result;
+            if (!int.TryParse(ParticipantNumber, out result))
+                return false;
+
             return true;
         }
 
         public void ExecuteCommandCreateParticipant(object parameter)
         {
-            ParticipantRepository pr = new ParticipantRepository();
+
             Participant p = new Participant();
             Boat b = new Boat();
 
             b.Name = BoatName;
             b.SailNumber = SailNumber;
-            b.Colour = BoatColor;
+            b.Colour = BoatColour;
             b.Length = BoatLength;
             b.Model = BoatType;
 
             p.Name = Captain;
             p.Country = Country;
             p.CategoryAssignedByParticipant = BoatCategory;
-            p.ParticipantNumber = ParticipantNumber;
+            p.ParticipantNumber = participantNumber;
             p.Boat = b;
 
-            pr.Create(p);
-
-            
-
-            // Kode udføres når der trykkes OK
+            ParticipantRepository.Create(p);
         }
-
-        
     }
 }

@@ -10,7 +10,6 @@ namespace BusinessLayer
 {
     public class SortParticipantAssignedCategori
     {
-        CategoryRepository categoryRepository = new CategoryRepository();
         List<Category> categoryList = new List<Category>();
         ObservableCollection<Participant> participantList = new ObservableCollection<Participant>();
 
@@ -39,7 +38,7 @@ namespace BusinessLayer
             foreach (string categoryDescription in foundCategoriesList)
             {
                 Category category = new Category(categoryDescription);
-                categoryRepository.Create(category);
+                CategoryRepository.Create(category);
             }
             AssignParticipantsToCategories();
         }

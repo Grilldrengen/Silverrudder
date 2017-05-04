@@ -6,13 +6,77 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class Boat
+    public class Boat : ModelBase
     {
-        public string Name { get; set; }
-        public string SailNumber { get; set; }
-        public string Model { get; set; }
-        public float Length { get; set; }
-        public string Colour { get; set; }
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (value != name)
+                {
+                    name = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private string sailNumber;
+        public string SailNumber
+        {
+            get { return sailNumber; }
+            set
+            {
+                if (value != sailNumber)
+                {
+                    sailNumber = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private string model;
+        public string Model
+        {
+            get { return model; }
+            set
+            {
+                if (value != model)
+                {
+                    model = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private float length;
+        public float Length
+        {
+            get { return length; }
+            set
+            {
+                if (value != length)
+                {
+                    length = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private string colour;
+        public string Colour
+        {
+            get { return colour; }
+            set
+            {
+                if (value != colour)
+                {
+                    colour = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
         public Boat()
         { }
