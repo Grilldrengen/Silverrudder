@@ -17,6 +17,7 @@ namespace UI.ViewModels
     {
         private ParticipantRepository participantRepository = new ParticipantRepository();
         private BoatRepository boatRepository = new BoatRepository();
+
         public ICommand CommandCreateParticipant { get; set; }
         public ICommand CommandChangeParticipant { get; set; }
         public ICommand CommandDeleteParticipant { get; set; }
