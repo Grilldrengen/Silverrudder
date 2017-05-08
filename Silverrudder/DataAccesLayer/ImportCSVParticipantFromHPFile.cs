@@ -42,7 +42,7 @@ namespace DataAccesLayer
                 string[] values = line.Split(';');
 
                 participant.Name = values[0];
-                participant.Country = values[1].Substring(0, 3).ToUpper();
+                participant.Country = values[1];
                 participant.Category = values[4];
 
                 boat.Model = values[2];
