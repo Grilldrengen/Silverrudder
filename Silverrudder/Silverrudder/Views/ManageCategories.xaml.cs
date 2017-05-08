@@ -12,17 +12,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UI.ViewModels;
 
 namespace UI.Views
 {
     /// <summary>
     /// Interaction logic for ManageCategories.xaml
     /// </summary>
+    
     public partial class ManageCategories : UserControl
     {
+        private ManageCategoriesVM viewModel { get; set; }
+
         public ManageCategories()
         {
             InitializeComponent();
+
+            if (System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
+                return;
+
+            viewModel = new ManageCategoriesVM();
+            DataContext = viewModel;
         }
     }
 }

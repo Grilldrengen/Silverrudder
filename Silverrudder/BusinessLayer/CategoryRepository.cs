@@ -25,12 +25,12 @@ namespace BusinessLayer
 
         public void Create(Category category)
         {
-            CategoryRepository.Instance.list.Add(category);
+            Instance.list.Add(category);
         }
 
         public void Delete(Category category)
         {
-            CategoryRepository.Instance.list.Remove(category);
+            Instance.list.Remove(category);
         }
 
         public bool Modify(Category category, CategoryProperties property, string newValue)
@@ -66,7 +66,7 @@ namespace BusinessLayer
 
         public List<Category> GetAll()
         {
-            return CategoryRepository.Instance.list;
+            return Instance.list;
         }
 
         private bool TryParseStringToFloat(string value)
@@ -90,6 +90,5 @@ namespace BusinessLayer
 
             else return false;
         }
-
     }
 }
