@@ -14,7 +14,7 @@ namespace BusinessLayer
     public class ParticipantRepository : IRepository<Participant, ParticipantProperties, string>
     {
         ImportCSVParticipantFromHPFile importCSVParticipantFromHPFile = new ImportCSVParticipantFromHPFile();
-        SortParticipantAssignedCategori sortParticipantAssignedCategori = new SortParticipantAssignedCategori();
+        SortParticipantAssignedCategory sortParticipantAssignedCategory = new SortParticipantAssignedCategory();
 
         private static readonly ParticipantRepository _instance = new ParticipantRepository();
 
@@ -93,7 +93,7 @@ namespace BusinessLayer
 
         public void AssignParticipantsToParticipantAssignedCategories()
         {
-            sortParticipantAssignedCategori.StartSorting();
+            sortParticipantAssignedCategory.StartSorting();
         }
 
 

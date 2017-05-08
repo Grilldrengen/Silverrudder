@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 
 namespace BusinessLayer
 {
-    public class SortParticipantAssignedCategori
+    public class SortParticipantAssignedCategory
     {
         internal void StartSorting()
         {

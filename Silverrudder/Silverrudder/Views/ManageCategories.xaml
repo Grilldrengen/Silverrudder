@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="UI.Views.ManageCategories"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1200">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height='3.5*' />
+      <RowDefinition Height='1*' />
+      <RowDefinition Height='0.10*'/>
+      <RowDefinition Height='0.15*'/>
+    </Grid.RowDefinitions>
+
+    <DockPanel Grid.Row='0'>
+      <DataGrid x:Name='CategoryList' AutoGenerateColumns='False' IsReadOnly='True'>
+        <DataGrid.Columns>
+          <DataGridTextColumn Header='Kategorinavn' Width='100' />
+          <DataGridTextColumn Header='Start Tid' Width='100' />
+          <DataGridTextColumn Header='Antal Deltagere' Width='100' />
+        </DataGrid.Columns>
+      </DataGrid>
+    </DockPanel>
+
+    <Grid Grid.Row='1'>
+      <Grid.RowDefinitions >
+        <RowDefinition Height='1*' />
+        <RowDefinition Height='1*' />
+        <RowDefinition Height='1*' />
+      </Grid.RowDefinitions>
+
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width='1*' />
+        <ColumnDefinition Width='1*' />
+        <ColumnDefinition Width='1*' />
+        <ColumnDefinition Width='1*' />
+        <ColumnDefinition Width='1*' />
+      </Grid.ColumnDefinitions>
+
+      <DockPanel Grid.Row='0'>
+        <Label x:Name='CategoryNameLbl' Content='Kategorinavn' Width='100' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
+        <TextBox x:Name='CategoryTbx' Text='' Width='110' Height='25' HorizontalAlignment='Left' VerticalAlignment='Bottom'/>
+      </DockPanel>
+
+      <DockPanel Grid.Row='1'>
+        <Label x:Name='StartTidLbl' Content='Start Tid' Width='100' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
+        <TextBox x:Name='StartTidTbx' Text='' Width='110' Height='25' HorizontalAlignment='Left' VerticalAlignment='Bottom'/>
+      </DockPanel>
+
+      <DockPanel Grid.Row='0' Grid.Column='3'>
+        <Button x:Name='CreateCategoryBtn' Command="" Content='Opret kategori' Width='110' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom' />
+      </DockPanel>
+
+      <DockPanel Grid.Row='0' Grid.Column='4'>
+        <Button x:Name='DeleteCategoryBtn' Command="" Content='Slet kategori' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom' />
+      </DockPanel>
+
+      <DockPanel Grid.Row='1' Grid.Column='4'>
+        <Button x:Name='ModifyCategoryBtn' Command="" Content='Rediger kategori' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom' />
+      </DockPanel>
+
+      <DockPanel Grid.Row='1' Grid.Column='3'>
+        <Button x:Name='DivideCategoryBtn' Command="" Content='Opdel kategori' Width='110' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom' />
+      </DockPanel>
+
+    </Grid>
+
+    <Rectangle Grid.Row='2' HorizontalAlignment="Stretch" VerticalAlignment='Bottom' Fill="Gray" Height="1"/>
+
+    <DockPanel Grid.Row='3'>
+      <TextBlock Text='Her kan du se oplysninger angående fejl eller mangler'/>
+    </DockPanel>
+
+  </Grid>
+</UserControl>

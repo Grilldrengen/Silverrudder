@@ -68,13 +68,21 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ManageCategories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ManageParticipant.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModels\ManageCategoriesVM.cs" />
     <Compile Include="ViewModels\ManageParticipantVM.cs" />
+    <Compile Include="Views\ManageCategories.xaml.cs">
+      <DependentUpon>ManageCategories.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ManageParticipant.xaml.cs">
       <DependentUpon>ManageParticipant.xaml</DependentUpon>
     </Compile>

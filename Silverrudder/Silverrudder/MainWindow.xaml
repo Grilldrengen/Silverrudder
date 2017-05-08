@@ -16,12 +16,16 @@
     </Grid.RowDefinitions>
 
     <TabControl Grid.Row='0' >
-       <TabItem Header='Administrer Kategorier' Height='25'/>
+      <TabItem Header='Administrer Kategorier' Height='25'>
+        <views:ManageCategories />
+      </TabItem>
+
       <TabItem Header='Administrer Deltager' Height='25'>
         <views:ManageParticipant />
       </TabItem>
-     
-      <TabItem Header='Stop Bådenes Tider' Height='25'/>
+
+      <TabItem Header='Stop Bådenes Tider' Height='25'>
+      </TabItem>
     </TabControl>
 
   </Grid>

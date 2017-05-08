@@ -19,15 +19,15 @@
     <DockPanel Grid.Row='0'>
       <DataGrid x:Name='ParticipantsList' AutoGenerateColumns='False' ItemsSource="{Binding ParticipantsList}" SelectedItem='{Binding SelectedParticipant}' IsReadOnly='True'>
         <DataGrid.Columns>
-          <DataGridTextColumn Header='Kaptajn' Binding='{Binding Name}'/>
-          <DataGridTextColumn Header='Land' Binding='{Binding Country}'/>
-          <DataGridTextColumn Header='Bådtype' Binding='{Binding Boat.Model}'/>
-          <DataGridTextColumn Header='Bådnavn' Binding='{Binding Boat.Name}'/>
-          <DataGridTextColumn Header='Bådkategori' Binding='{Binding Category}'/>
-          <DataGridTextColumn Header='Sejlnummer' Binding='{Binding Boat.SailNumber}'/>
-          <DataGridTextColumn Header='Deltagernummer' Binding='{Binding ParticipantNumber}'/>
-          <DataGridTextColumn Header='Bådfarve' Binding='{Binding Boat.Colour}'/>
-          <DataGridTextColumn Header='Bådlængde' Binding='{Binding Boat.Length}'/>
+          <DataGridTextColumn Header='Kaptajn' Width='100' Binding='{Binding Name}'/>
+          <DataGridTextColumn Header='Land' Width='100' Binding='{Binding Country}'/>
+          <DataGridTextColumn Header='Bådtype' Width='100' Binding='{Binding Boat.Model}'/>
+          <DataGridTextColumn Header='Bådnavn' Width='100' Binding='{Binding Boat.Name}'/>
+          <DataGridTextColumn Header='Bådkategori' Width='100' Binding='{Binding Category}'/>
+          <DataGridTextColumn Header='Sejlnummer' Width='100' Binding='{Binding Boat.SailNumber}'/>
+          <DataGridTextColumn Header='Deltagernummer' Width='100' Binding='{Binding ParticipantNumber}'/>
+          <DataGridTextColumn Header='Bådfarve' Width='100' Binding='{Binding Boat.Colour}'/>
+          <DataGridTextColumn Header='Bådlængde' Width='100' Binding='{Binding Boat.Length}'/>
         </DataGrid.Columns>
       </DataGrid>
     </DockPanel>
