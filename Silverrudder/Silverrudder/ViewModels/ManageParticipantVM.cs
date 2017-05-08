@@ -250,7 +250,7 @@ namespace UI.ViewModels
                 return false;
 
             int result;
-            if (!int.TryParse(ParticipantNumber, out result))
+            if (!int.TryParse(ParticipantNumber, out result))                
                 return false;
 
             return true;
