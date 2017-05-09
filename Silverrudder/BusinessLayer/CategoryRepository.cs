@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
+using System.Collections.ObjectModel;
 
 namespace BusinessLayer
 {
@@ -20,7 +21,7 @@ namespace BusinessLayer
                 return _instance;
             }
         }
-        public List<Category> list = new List<Category>();
+        public ObservableCollection<Category> list = new ObservableCollection<Category>();
 
 
         public void Create(Category category)
@@ -64,7 +65,7 @@ namespace BusinessLayer
             }
         }
 
-        public List<Category> GetAll()
+        public ObservableCollection<Category> GetAll()
         {
             return Instance.list;
         }
