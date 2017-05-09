@@ -230,19 +230,6 @@ namespace UI.ViewModels
             boatRepository.Modify(selectedParticipant.Boat, BoatProperties.Model, BoatType);
             boatRepository.Modify(selectedParticipant.Boat, BoatProperties.Name, BoatName);
             boatRepository.Modify(selectedParticipant.Boat, BoatProperties.SailNumber, SailNumber);
-
-            //SelectedParticipant.Boat.Name = BoatName;
-            //SelectedParticipant.Boat.SailNumber = SailNumber;
-            //SelectedParticipant.Boat.Colour = BoatColour;
-            //SelectedParticipant.Boat.Length = BoatLength;
-            //SelectedParticipant.Boat.Model = BoatType;
-
-            //SelectedParticipant.Name = Captain;
-            //SelectedParticipant.Country = Country;
-            //SelectedParticipant.Category = BoatCategory;
-            //SelectedParticipant.ParticipantNumber = participantNumber;
-
-
         }
 
         public bool CanExecuteCommandCreateParticipant(object parameter)
