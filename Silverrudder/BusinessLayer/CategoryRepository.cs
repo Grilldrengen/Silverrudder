@@ -42,12 +42,14 @@ namespace BusinessLayer
                 case CategoryProperties.Name:
                     category.Name = newValue;
                     return true;
+
                 case CategoryProperties.StartTime:
                     result = TryParseStringToDateTime(newValue);
                     if (result == false)
                         return false;
-                    else category.StartTime = Convert.ToDateTime(newValue);
+                    else 
                     return true;
+
                 default:
                     return false;
             }

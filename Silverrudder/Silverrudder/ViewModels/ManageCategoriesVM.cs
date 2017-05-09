@@ -19,16 +19,6 @@ namespace UI.ViewModels
         public ICommand CommandDeleteCategory { get; set; }
         public ICommand CommandDivideCategory { get; set; }
 
-        public ManageCategoriesVM()
-        {
-            CommandCreateCategory = new Command(ExecuteCommandCreateCategory, CanExecuteCommandCreateCategory);
-            CommandChangeCategory = new Command(ExecuteCommandChangeCategory, CanExecuteCommandChangeCategory);
-            CommandDeleteCategory = new Command(ExecuteCommandDeleteCategory, CanExecuteCommandDeleteCategory);
-            CommandDivideCategory = new Command(ExecuteCommandDivideCategory, CanExecuteCommandDivideCategory);
-
-            CategoryList = categoryRepository.GetAll();
-        }
-
         #region Properties
 
         private Category selectedCategory;
@@ -79,8 +69,8 @@ namespace UI.ViewModels
             }
         }
 
-        private DateTime startTime;
-        public DateTime StartTime
+        private string startTime;
+        public string StartTime
         {
             get { return startTime; }
             set
@@ -109,6 +99,16 @@ namespace UI.ViewModels
 
         #endregion
 
+        public ManageCategoriesVM()
+        {
+            CommandCreateCategory = new Command(ExecuteCommandCreateCategory, CanExecuteCommandCreateCategory);
+            CommandChangeCategory = new Command(ExecuteCommandChangeCategory, CanExecuteCommandChangeCategory);
+            CommandDeleteCategory = new Command(ExecuteCommandDeleteCategory, CanExecuteCommandDeleteCategory);
+            CommandDivideCategory = new Command(ExecuteCommandDivideCategory, CanExecuteCommandDivideCategory);
+
+            CategoryList = categoryRepository.GetAll();
+        }
+
         private bool CanExecuteCommandDivideCategory(object parameter)
         {
             return true;
@@ -136,7 +136,8 @@ namespace UI.ViewModels
 
         private void ExecuteCommandChangeCategory(object parameter)
         {
-            throw new NotImplementedException();
+            categoryRepository.Modify(SelectedCategory, CategoryProperties.Name, CategoryName);
+            categoryRepository.Modify(SelectedCategory, CategoryProperties.StartTime, StartTime);
         }
 
         private bool CanExecuteCommandCreateCategory(object parameter)
@@ -158,9 +159,10 @@ namespace UI.ViewModels
                 if (item.Category == CategoryName)
                 {
                     category.Participants.Add(item);
-                    
+
                 }
             }
+
             NumberOfParticipants = category.Participants.Count;
         }
     }

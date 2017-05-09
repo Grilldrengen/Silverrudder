@@ -10,7 +10,7 @@ namespace Domain
     public class Category
     {
         public string Name { get; set; }
-        public DateTime StartTime { get; set; }
+        public string StartTime { get; set; }
         public ObservableCollection<Participant> Participants { get; set; }
 
         public Category()
@@ -24,7 +24,7 @@ namespace Domain
             this.Participants = new ObservableCollection<Participant>();
         }
 
-        public Category(string name, DateTime startTime)
+        public Category(string name, string startTime)
         {
             this.Name = name;
             this.StartTime = startTime;
