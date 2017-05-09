@@ -27,7 +27,6 @@ namespace BusinessLayer
         }
         public ObservableCollection<Participant> list = new ObservableCollection<Participant>();
 
-
         public void Create(Participant Participant)
         {
             Participant part = Instance.list.FirstOrDefault(p => p.ParticipantNumber == Participant.ParticipantNumber);
@@ -66,7 +65,6 @@ namespace BusinessLayer
             }
         }
 
-
         public ObservableCollection<Participant> GetAll()
         {
             return Instance.list;
@@ -95,7 +93,5 @@ namespace BusinessLayer
         {
             sortParticipantAssignedCategory.StartSorting();
         }
-
-
     }
 }

@@ -254,6 +254,12 @@ namespace UI.ViewModels
             if (!int.TryParse(ParticipantNumber, out result))                
                 return false;
 
+            if (Captain == null)
+                return false;
+
+            if (BoatName == null)
+                return false;
+
             return true;
         }
 

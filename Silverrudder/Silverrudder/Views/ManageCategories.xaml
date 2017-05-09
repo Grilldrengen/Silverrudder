@@ -19,7 +19,7 @@
         <DataGrid.Columns>
           <DataGridTextColumn Header='Kategorinavn' Width='100' Binding='{Binding Name}'/>
           <DataGridTextColumn Header='Start Tid' Width='100' Binding='{Binding StartTime}'/>
-          <DataGridTextColumn Header='Antal Deltagere' Width='100' Binding='{Binding NumberOfParticipants}'/>
+          <DataGridTextColumn Header='Antal Deltagere' Width='100' Binding='{Binding }'/>
         </DataGrid.Columns>
       </DataGrid>
     </DockPanel>
