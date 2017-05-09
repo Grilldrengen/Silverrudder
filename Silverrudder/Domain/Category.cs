@@ -30,5 +30,10 @@ namespace Domain
             this.StartTime = startTime;
             this.Participants = new ObservableCollection<Participant>();
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
