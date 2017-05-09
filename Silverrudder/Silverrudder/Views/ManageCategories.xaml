@@ -15,11 +15,11 @@
     </Grid.RowDefinitions>
 
     <DockPanel Grid.Row='0'>
-      <DataGrid x:Name='CategoryList' AutoGenerateColumns='False' IsReadOnly='True'>
+      <DataGrid x:Name='CategoryList' ItemsSource="{Binding CategoryList}" AutoGenerateColumns='False' IsReadOnly='True'>
         <DataGrid.Columns>
-          <DataGridTextColumn Header='Kategorinavn' Width='100' />
-          <DataGridTextColumn Header='Start Tid' Width='100' />
-          <DataGridTextColumn Header='Antal Deltagere' Width='100' />
+          <DataGridTextColumn Header='Kategorinavn' Width='100' Binding='{Binding Name}'/>
+          <DataGridTextColumn Header='Start Tid' Width='100' Binding='{Binding StartTime}'/>
+          <DataGridTextColumn Header='Antal Deltagere' Width='100' Binding='{Binding NumberOfParticipants}'/>
         </DataGrid.Columns>
       </DataGrid>
     </DockPanel>
@@ -41,16 +41,16 @@
 
       <DockPanel Grid.Row='0'>
         <Label x:Name='CategoryNameLbl' Content='Kategorinavn' Width='100' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox x:Name='CategoryTbx' Text='' Width='110' Height='25' HorizontalAlignment='Left' VerticalAlignment='Bottom'/>
+        <TextBox x:Name='CategoryTbx' Text='{Binding CategoryName}' Width='110' Height='25' HorizontalAlignment='Left' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='1'>
         <Label x:Name='StartTidLbl' Content='Start Tid' Width='100' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-        <TextBox x:Name='StartTidTbx' Text='' Width='110' Height='25' HorizontalAlignment='Left' VerticalAlignment='Bottom'/>
+        <TextBox x:Name='StartTidTbx' Text='{Binding StartTime}' Width='110' Height='25' HorizontalAlignment='Left' VerticalAlignment='Bottom'/>
       </DockPanel>
 
       <DockPanel Grid.Row='0' Grid.Column='3'>
-        <Button x:Name='CreateCategoryBtn' Command="" Content='Opret kategori' Width='110' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom' />
+        <Button x:Name='CreateCategoryBtn' Command="{Binding CommandCreateCategory}" Content='Opret kategori' Width='110' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom' />
       </DockPanel>
 
       <DockPanel Grid.Row='0' Grid.Column='4'>

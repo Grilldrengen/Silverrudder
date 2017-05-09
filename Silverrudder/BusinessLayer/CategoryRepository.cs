@@ -42,18 +42,6 @@ namespace BusinessLayer
                 case CategoryProperties.Name:
                     category.Name = newValue;
                     return true;
-                case CategoryProperties.MinLength:
-                    result = TryParseStringToFloat(newValue);
-                    if (result == false)
-                        return false;
-                    else category.MinLength = float.Parse(newValue);
-                    return true;
-                case CategoryProperties.MaxLength:
-                    result = TryParseStringToFloat(newValue);
-                    if (result == false)
-                        return false;
-                    else category.MaxLength = float.Parse(newValue);
-                    return true;
                 case CategoryProperties.StartTime:
                     result = TryParseStringToDateTime(newValue);
                     if (result == false)

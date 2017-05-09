@@ -25,25 +25,86 @@ namespace UI.ViewModels
             CommandDeleteCategory = new Command(ExecuteCommandDeleteCategory, CanExecuteCommandDeleteCategory);
             CommandDivideCategory = new Command(ExecuteCommandDivideCategory, CanExecuteCommandDivideCategory);
 
-            CategoriesList = categoryrepository.GetAll();
+            CategoryList = categoryrepository.GetAll();
         }
 
         #region Properties
 
-        private ObservableCollection<Category> categoriesList;
-        public ObservableCollection<Category> CategoriesList
+        private Participant selectedParticipant;
+        public Participant SelectedParticipant
         {
-            get { return categoriesList; }
+            get { return selectedParticipant; }
             set
             {
-                if (value != categoriesList)
+                if (value != selectedParticipant)
                 {
-                    categoriesList = value;
+                    selectedParticipant = value;
+                    NotifyPropertyChanged();
+
+                    if (SelectedParticipant != null)
+                    {
+                        
+                    }
+
+                }
+            }
+        }
+
+        private ObservableCollection<Category> categoryList;
+        public ObservableCollection<Category> CategoryList
+        {
+            get { return categoryList; }
+            set
+            {
+                if (value != categoryList)
+                {
+                    categoryList = value;
                     NotifyPropertyChanged();
                 }
             }
         }
 
+        private string categoryName;
+        public string CategoryName
+        {
+            get { return categoryName; }
+            set
+            {
+                if (value != categoryName)
+                {
+                    categoryName = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private DateTime startTime;
+        public DateTime StartTime
+        {
+            get { return startTime; }
+            set
+            {
+                if (value != startTime)
+                {
+                    startTime = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private int numberOfParticipants;
+        public int NumberOfParticipants
+        {
+            get { return numberOfParticipants; }
+            set
+            {
+                if (value != numberOfParticipants)
+                {
+                    numberOfParticipants = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
 
         #endregion
@@ -87,13 +148,12 @@ namespace UI.ViewModels
         {
             Category c = new Category();
 
-            c.Name =
-            c.StartTime =
-            c.Participants =
-            c.MinLength =
-            c.MaxLength =
+            c.Name = CategoryName;
+            c.StartTime = StartTime;
+            
 
             categoryrepository.Create(c);
+            
         }
 
        
