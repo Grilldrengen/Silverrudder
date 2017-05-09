@@ -14,7 +14,7 @@ namespace BusinessLayer
     public class ParticipantRepository : IRepository<Participant, ParticipantProperties, string>
     {
         ImportCSVParticipantFromHPFile importCSVParticipantFromHPFile = new ImportCSVParticipantFromHPFile();
-        SortParticipantAssignedCategory sortParticipantAssignedCategory = new SortParticipantAssignedCategory();
+        AssignParticipantsToCategories sortParticipantAssignedCategory = new AssignParticipantsToCategories();
 
         private static readonly ParticipantRepository _instance = new ParticipantRepository();
 

@@ -60,6 +60,34 @@ namespace BusinessLayer
             return Instance.list;
         }
 
+
+        public void SplitCategory(Category category)
+        {
+            Category category1 = new Category(category.Name + " 1");
+            Category category2 = new Category(category.Name + " 2");
+
+            int participantsTotal = category.Participants.Count;
+            int participantsAmountDividedByTwo = participantsTotal / 2;
+
+            for (int j = 0; j < participantsAmountDividedByTwo; j++)
+            {
+                category1.Participants[j].Category = category1.Name;
+
+                category1.Participants.Add(category.Participants[j]);
+            }
+
+            for (int j = participantsAmountDividedByTwo; j < participantsTotal; j++)
+            {
+                category2.Participants[j].Category = category2.Name;
+
+                category2.Participants.Add(category.Participants[j]);
+            }
+
+            Instance.Create(category1);
+            Instance.Create(category2);
+            Instance.Delete(category);
+        }
+
         private bool TryParseStringToFloat(string value)
         {
             float length;

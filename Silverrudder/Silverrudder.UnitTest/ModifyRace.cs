@@ -13,7 +13,7 @@ namespace UI.UnitTest
         Participant Participant = new Participant();
         ParticipantRepository ParticipantRepository = new ParticipantRepository();
         ImportCSVParticipantFromHPFile importCSVParticipantsFile = new ImportCSVParticipantFromHPFile();
-        SortParticipantAssignedCategory sortParticipantAssignedCategory = new SortParticipantAssignedCategory();
+        AssignParticipantsToCategories sortParticipantAssignedCategory = new AssignParticipantsToCategories();
 
         [TestMethod]
         public void ModifyParticipant_Create_OneParticipantObjectCreated()
