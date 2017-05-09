@@ -45,7 +45,7 @@ namespace UI.ViewModels
 
                         Captain = selectedParticipant.Name;
                         Country = SelectedParticipant.Country;
-                        BoatCategory = SelectedParticipant.Category;
+                        BoatCategory = null;
                         participantNumber = SelectedParticipant.ParticipantNumber;
                     }
 
