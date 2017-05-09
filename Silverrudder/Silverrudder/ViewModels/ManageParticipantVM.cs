@@ -259,24 +259,24 @@ namespace UI.ViewModels
 
         public void ExecuteCommandCreateParticipant(object parameter)
         {
-            Boat b = new Boat();
+            Boat boat = new Boat();
 
-            b.Name = BoatName;
-            b.SailNumber = SailNumber;
-            b.Colour = BoatColour;
-            b.Length = BoatLength;
-            b.Model = BoatType;
+            boat.Name = BoatName;
+            boat.SailNumber = SailNumber;
+            boat.Colour = BoatColour;
+            boat.Length = BoatLength;
+            boat.Model = BoatType;
 
-            Participant p = new Participant();
+            Participant participant = new Participant();
 
-            p.Name = Captain;
-            p.Country = Country;
-            p.Category = BoatCategory;
-            p.ParticipantNumber = participantNumber;
+            participant.Name = Captain;
+            participant.Country = Country;
+            participant.Category = BoatCategory;
+            participant.ParticipantNumber = participantNumber;
 
-            p.Boat = b;
+            participant.Boat = boat;
 
-            participantRepository.Create(p);
+            participantRepository.Create(participant);
         }
     }
 }

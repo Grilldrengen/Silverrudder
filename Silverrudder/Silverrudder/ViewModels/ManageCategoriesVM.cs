@@ -12,7 +12,8 @@ namespace UI.ViewModels
 {
     class ManageCategoriesVM : ModelBase
     {
-        CategoryRepository categoryrepository = new CategoryRepository();
+        CategoryRepository categoryRepository = new CategoryRepository();
+
         public ICommand CommandCreateCategory { get; set; }
         public ICommand CommandChangeCategory { get; set; }
         public ICommand CommandDeleteCategory { get; set; }
@@ -25,27 +26,27 @@ namespace UI.ViewModels
             CommandDeleteCategory = new Command(ExecuteCommandDeleteCategory, CanExecuteCommandDeleteCategory);
             CommandDivideCategory = new Command(ExecuteCommandDivideCategory, CanExecuteCommandDivideCategory);
 
-            CategoryList = categoryrepository.GetAll();
+            CategoryList = categoryRepository.GetAll();
         }
 
         #region Properties
 
-        private Participant selectedParticipant;
-        public Participant SelectedParticipant
+        private Category selectedCategory;
+        public Category SelectedCategory
         {
-            get { return selectedParticipant; }
+            get { return selectedCategory; }
             set
             {
-                if (value != selectedParticipant)
+                if (value != selectedCategory)
                 {
-                    selectedParticipant = value;
+                    selectedCategory = value;
                     NotifyPropertyChanged();
 
-                    if (SelectedParticipant != null)
+                    if (SelectedCategory != null)
                     {
-                        
+                        CategoryName = SelectedCategory.Name;
+                        StartTime = SelectedCategory.StartTime;
                     }
-
                 }
             }
         }
@@ -106,7 +107,6 @@ namespace UI.ViewModels
             }
         }
 
-
         #endregion
 
         private bool CanExecuteCommandDivideCategory(object parameter)
@@ -126,7 +126,7 @@ namespace UI.ViewModels
 
         private void ExecuteCommandDeleteCategory(object parameter)
         {
-            throw new NotImplementedException();
+            categoryRepository.Delete(selectedCategory);
         }
 
         private bool CanExecuteCommandChangeCategory(object parameter)
@@ -146,18 +146,20 @@ namespace UI.ViewModels
 
         private void ExecuteCommandCreateCategory(object parameter)
         {
-            Category c = new Category();
+            Category category = new Category();
 
-            c.Name = CategoryName;
-            c.StartTime = StartTime;
-            
+            category.Name = CategoryName;
+            category.StartTime = StartTime;
 
-            categoryrepository.Create(c);
-            
+            categoryRepository.Create(category);
+
+            foreach (var item in ParticipantRepository.Instance.list)
+            {
+                if (item.Category == CategoryName)
+                {
+                    category.Participants.Add(item);
+                }
+            }     
         }
-
-       
-
-
     }
 }

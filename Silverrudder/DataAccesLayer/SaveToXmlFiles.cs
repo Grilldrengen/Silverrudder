@@ -47,18 +47,18 @@ namespace DataAccesLayer
 
         public static void SaveParticipantListToXmlFile(List<Participant> list, string file)
         {
-                if (list == null) { return; }
+            if (list == null) { return; }
 
-                XmlDocument xmlDocument = new XmlDocument();
-                XmlSerializer serializer = new XmlSerializer(list.GetType());
-                using (MemoryStream stream = new MemoryStream())
-                {
-                    serializer.Serialize(stream, list);
-                    stream.Position = 0;
-                    xmlDocument.Load(stream);
-                    xmlDocument.Save(file);
-                    stream.Close();
-                }
+            XmlDocument xmlDocument = new XmlDocument();
+            XmlSerializer serializer = new XmlSerializer(list.GetType());
+            using (MemoryStream stream = new MemoryStream())
+            {
+                serializer.Serialize(stream, list);
+                stream.Position = 0;
+                xmlDocument.Load(stream);
+                xmlDocument.Save(file);
+                stream.Close();
+            }
         }
 
         public static void SaveCategoryListToXmlFile(List<Category> list, string file)

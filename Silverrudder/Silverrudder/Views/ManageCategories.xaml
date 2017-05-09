@@ -15,7 +15,7 @@
     </Grid.RowDefinitions>
 
     <DockPanel Grid.Row='0'>
-      <DataGrid x:Name='CategoryList' ItemsSource="{Binding CategoryList}" AutoGenerateColumns='False' IsReadOnly='True'>
+      <DataGrid x:Name='CategoryList' ItemsSource="{Binding CategoryList}" SelectedItem='{Binding SelectedCategory}' AutoGenerateColumns='False' IsReadOnly='True'>
         <DataGrid.Columns>
           <DataGridTextColumn Header='Kategorinavn' Width='100' Binding='{Binding Name}'/>
           <DataGridTextColumn Header='Start Tid' Width='100' Binding='{Binding StartTime}'/>
@@ -54,7 +54,7 @@
       </DockPanel>
 
       <DockPanel Grid.Row='0' Grid.Column='4'>
-        <Button x:Name='DeleteCategoryBtn' Command="" Content='Slet kategori' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom' />
+        <Button x:Name='DeleteCategoryBtn' Command="{Binding CommandDeleteCategory}" Content='Slet kategori' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom' />
       </DockPanel>
 
       <DockPanel Grid.Row='1' Grid.Column='4'>

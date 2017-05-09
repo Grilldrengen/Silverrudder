@@ -62,7 +62,7 @@ namespace UI.UnitTest
             Assert.IsTrue(result);
         }
 
-        ////Virker kun lokalt, ellers ændr stien
+        //Virker kun lokalt, ellers ændre stien
         //[TestMethod]
         //public void ModifyParticipant_FindNewCategories_SevenCategoriesFound()
         //{
@@ -73,22 +73,22 @@ namespace UI.UnitTest
 
         //}
 
-        //Virker kun lokalt, ellers ændr stien
-        [TestMethod]
-        public void ModifyParticipant_AssignParticipantsToCategories_39ParticipantsFoundInCategory()
-        {
-            importCSVParticipantsFile.ReadCSVFile(@"C:\Users\Christian\Desktop\Silverrudder\Participants.csv");
+        //Virker kun lokalt, ellers ændre stien
+        //[TestMethod]
+        //public void ModifyParticipant_AssignParticipantsToCategories_39ParticipantsFoundInCategory()
+        //{
+        //    importCSVParticipantsFile.ReadCSVFile(@"C:\Users\Christian\Desktop\Silverrudder\Participants.csv");
 
-            int count = 0;
-            for (int i = 0; i < CategoryRepository.Instance.list.Count; i++)
-            {
-                if (CategoryRepository.Instance.list[i].Name.Equals("Keelboats Extra Large"))
-                {
-                    count = CategoryRepository.Instance.list[i].Participants.Count;
-                }
-            }
-            Assert.AreEqual(39, count);
-        }
+        //    int count = 0;
+        //    for (int i = 0; i < CategoryRepository.Instance.list.Count; i++)
+        //    {
+        //        if (CategoryRepository.Instance.list[i].Name.Equals("Keelboats Extra Large"))
+        //        {
+        //            count = CategoryRepository.Instance.list[i].Participants.Count;
+        //        }
+        //    }
+        //    Assert.AreEqual(39, count);
+        //}
 
         [TestCleanup]
         public void CleanUp_ClearList()
