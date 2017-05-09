@@ -131,7 +131,12 @@ namespace UI.ViewModels
 
         private bool CanExecuteCommandChangeCategory(object parameter)
         {
-            return true;
+            if (SelectedCategory != null)
+            {
+                return true;
+            }
+            else
+                return false;
         }
 
         private void ExecuteCommandChangeCategory(object parameter)

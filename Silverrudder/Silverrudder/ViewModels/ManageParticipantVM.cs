@@ -226,7 +226,12 @@ namespace UI.ViewModels
 
         public bool CanExecuteCommandChangeParticipant(object parameter)
         {
-            return true;
+            if (SelectedParticipant != null)
+            {
+                return true;
+            }
+            else
+                return false;
         }
 
         public void ExecuteCommandChangeParticipant(object parameter)

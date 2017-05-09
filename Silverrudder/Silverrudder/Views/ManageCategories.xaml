@@ -58,7 +58,7 @@
       </DockPanel>
 
       <DockPanel Grid.Row='1' Grid.Column='4'>
-        <Button x:Name='ModifyCategoryBtn' Command="" Content='Rediger kategori' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom' />
+        <Button x:Name='ModifyCategoryBtn' Command="{Binding CommandChangeCategory}" Content='Rediger kategori' Width='110' Height='25' HorizontalAlignment='Center' VerticalAlignment='Bottom' />
       </DockPanel>
 
       <DockPanel Grid.Row='1' Grid.Column='3'>

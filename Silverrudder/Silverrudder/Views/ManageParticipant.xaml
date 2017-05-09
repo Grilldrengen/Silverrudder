@@ -69,8 +69,8 @@
 
       <DockPanel Grid.Row='1' Grid.Column='1'>
         <Label x:Name='BoatCategoryLbl' Content='Bådkategori' Width='100' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
-                <ComboBox x:Name="Category_Combobox" ItemsSource="{Binding BoatCategories}" Width='110' Height="25" HorizontalAlignment="Left" VerticalAlignment="Bottom" SelectedItem="{Binding BoatCategory}" />
-            </DockPanel>
+        <ComboBox x:Name="Category_Combobox" ItemsSource="{Binding BoatCategories}" Width='110' Height="25" HorizontalAlignment="Left" VerticalAlignment="Bottom" Text='{Binding BoatCategory}' SelectedItem="{Binding BoatCategory}" />
+      </DockPanel>
 
       <DockPanel Grid.Row='2' Grid.Column='1'>
         <Label x:Name='SailNumberLbl' Content='Sejlnummer' Width='100' Height='25' HorizontalAlignment='Right' VerticalAlignment='Bottom'/>
