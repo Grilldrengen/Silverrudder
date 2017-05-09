@@ -9,7 +9,7 @@ using System.Collections.ObjectModel;
 
 namespace BusinessLayer
 {
-    public enum ParticipantProperties { Name, Country, ParticipantNumber }
+    public enum ParticipantProperties { Name, Country, ParticipantNumber, Category }
 
     public class ParticipantRepository : IRepository<Participant, ParticipantProperties, string>
     {
@@ -48,8 +48,8 @@ namespace BusinessLayer
                     return true;
 
                 case ParticipantProperties.Country:
-                
-                        Participant.Country = newValue.ToUpper();
+
+                    Participant.Country = newValue;
                         return true;
 
                 case ParticipantProperties.ParticipantNumber:
@@ -59,6 +59,10 @@ namespace BusinessLayer
                     else
                         Participant.ParticipantNumber = int.Parse(newValue);
                     return true;
+
+                case ParticipantProperties.Category:
+                    Participant.Category = newValue;
+                    return true;                
 
                 default:
                     return false;

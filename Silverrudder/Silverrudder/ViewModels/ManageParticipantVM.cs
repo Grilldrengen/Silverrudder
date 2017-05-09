@@ -123,7 +123,14 @@ namespace UI.ViewModels
             }
         }
 
+        private readonly ObservableCollection<Category> _boatCategories;
         private string boatCategory;
+
+        public ObservableCollection<Category> BoatCategories
+        {
+            get { return _boatCategories; }
+        }
+
         public string BoatCategory
         {
             get { return boatCategory; }
@@ -202,6 +209,9 @@ namespace UI.ViewModels
             CommandDeleteParticipant = new Command(ExecuteCommandDeleteParticipant, CanExecuteCommandDeleteParticipant);
 
             ParticipantsList = participantRepository.GetAll();
+
+            ObservableCollection<Category> categories = new ObservableCollection<Category>();
+            _boatCategories = CategoryRepository.Instance.list;
         }
 
         public bool CanExecuteCommandDeleteParticipant(object parameter)
@@ -224,6 +234,7 @@ namespace UI.ViewModels
             participantRepository.Modify(SelectedParticipant, ParticipantProperties.Name, Captain);
             participantRepository.Modify(SelectedParticipant, ParticipantProperties.Country, Country);
             participantRepository.Modify(SelectedParticipant, ParticipantProperties.ParticipantNumber, ParticipantNumber);
+            participantRepository.Modify(SelectedParticipant, ParticipantProperties.Category, BoatCategory);
 
             boatRepository.Modify(selectedParticipant.Boat, BoatProperties.Colour, BoatColour);
             boatRepository.Modify(selectedParticipant.Boat, BoatProperties.Length, BoatLength.ToString());
