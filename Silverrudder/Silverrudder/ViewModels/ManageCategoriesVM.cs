@@ -158,6 +158,7 @@ namespace UI.ViewModels
                 if (item.Category == CategoryName)
                 {
                     category.Participants.Add(item);
+                    NumberOfParticipants = category.Participants.Count;
                 }
             }     
         }
