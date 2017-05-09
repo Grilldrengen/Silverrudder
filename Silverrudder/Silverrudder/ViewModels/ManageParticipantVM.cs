@@ -42,10 +42,10 @@ namespace UI.ViewModels
                         BoatColour = SelectedParticipant.Boat.Colour;
                         BoatLength = SelectedParticipant.Boat.Length;
                         BoatType = SelectedParticipant.Boat.Model;
+                        BoatCategory = SelectedParticipant.Category;
 
                         Captain = selectedParticipant.Name;
                         Country = SelectedParticipant.Country;
-                        BoatCategory = null;
                         participantNumber = SelectedParticipant.ParticipantNumber;
                     }
 
@@ -124,13 +124,12 @@ namespace UI.ViewModels
         }
 
         private readonly ObservableCollection<Category> _boatCategories;
-        private string boatCategory;
-
         public ObservableCollection<Category> BoatCategories
         {
             get { return _boatCategories; }
         }
 
+        private string boatCategory;
         public string BoatCategory
         {
             get { return boatCategory; }
@@ -254,7 +253,7 @@ namespace UI.ViewModels
                 return false;
 
             int result;
-            if (!int.TryParse(ParticipantNumber, out result))                
+            if (!int.TryParse(ParticipantNumber, out result))
                 return false;
 
             if (Captain == null)
